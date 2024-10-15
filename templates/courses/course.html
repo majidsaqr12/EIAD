@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block header_section %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
+
+<style>
+    /* Styling for the header */
+header {
+    background-color: #fff;
+}
+
+.navbar-brand .logo {
+    width: 70px; /* Adjust as per your logo size */
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: #2A3E52;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3;
+}
+
+.navbar-nav .btn-primary {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.dropdown-toggle {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        padding-left: 15px; /* Adjusted padding for phone mode */
+        text-align: center;
+        font-size: 18px; /* Optional: Increase the font size for better readability on small screens */
+    }
+}
+@media (min-width: 992px) {
+    .navbar-nav .nav-item:last-child {
+        margin-left: 50px; /* Space between the last menu item and the button */
+    }
+
+    .navbar-nav .btn_1 {
+        margin-left: 20px; /* Space between the "Get a Quote" button and the language dropdown */
+    }
+}
+/* Section styling */
+.skills-section {
+    background-color: #fff;
+    padding: 60px 0;
+}
+
+.section-heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: start;
+}
+
+.stat-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00a2ff;
+}
+
+.stat-item p {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+/* Right image with decorations */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.main-image {
+    border-radius: 50%;
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+}
+
+.decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle.blue {
+    width: 80px;
+    height: 80px;
+    background-color: #00a2ff;
+    top: 30%;
+    left: -10%;
+}
+
+.circle.light-blue {
+    width: 120px;
+    height: 120px;
+    background-color: #e0f7ff;
+    top: 60%;
+    right: -10%;
+}
+
+.trophy-icon {
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+}
+
+.trophy-icon img {
+    width: 60px;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .stat-item {
+        margin-bottom: 15px;
+    }
+
+    .main-image {
+        max-width: 250px;
+    }
+
+    .circle.blue {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circle.light-blue {
+        width: 90px;
+        height: 90px;
+    }
+
+    .trophy-icon img {
+        width: 50px;
+    }
+}
+/* Language Switcher Styles */
+.lang-switcher {
+    border-radius: 50px;
+    background: linear-gradient(45deg, #5a99d4, #82c3e6);
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.lang-switcher:hover {
+    background: linear-gradient(45deg, #82c3e6, #5a99d4);
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2A3E52;
+}
+
+.dropdown-item i {
+    margin-right: 10px;
+}
+
+.dropdown-item:hover {
+    background-color: #e0e0e0;
+    color: #0056b3;
+}
+
+</style>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'eiad/img/logo.jpg' %}" alt="{% trans 'logo' %}" class="logo">
+            </a>
+
+            <!-- Toggler for mobile/tablet view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
+                    </li>
+
+                    <!-- Get a Quote button (visible on large screens) -->
+                    <li class="d-none d-md-block">
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                    </li>
+
+                    <!-- Language Switcher -->
+                    <li class="nav-item ml-3">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% if LANGUAGE_CODE == 'fr' %}
+                                        <i class="flag-icon flag-icon-fr"></i> Français
+                                    {% else %}
+                                        <i class="flag-icon flag-icon-gb"></i> English
+                                    {% endif %}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    <li><button class="dropdown-item" type="submit" name="language" value="fr">
+                                        <i class="flag-icon flag-icon-fr"></i> Français
+                                    </button></li>
+                                    <li><button class="dropdown-item" type="submit" name="language" value="en">
+                                        <i class="flag-icon flag-icon-gb"></i> English
+                                    </button></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+{% endblock %}
+
+{% block hero_section %}
+<section class="skills-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column (Text and Stats) -->
+            <div class="col-md-6">
+                <h2 class="section-heading">{% trans "Apprenez une nouvelle compétence tous les jours, à tout moment et en tout lieu." %}</h2>
+                <p class="section-description">
+                    {% trans "Des cours couvrant tous les domaines technologiques vous permettent d'apprendre et d'explorer de nouvelles opportunités. Apprenez auprès d'experts du secteur et décrochez l'emploi de vos rêves." %}
+                </p>
+
+                <div class="stats d-flex mt-4">
+                    <div class="stat-item mr-5">
+                        <h3>2+</h3>
+                        <p>{% trans "Cours au choix" %}</p>
+                    </div>
+                    <div class="stat-item mr-5">
+                        <h3>5000+</h3>
+                        <p>{% trans "Étudiants formés" %}</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>{% trans "Formateurs professionnels" %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column (Image) -->
+            <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
+                <img src="{% static 'eiad/img/about.png' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block content %}
+<section style="margin-top: 80px;">
+    <div class="container text-center mt-5">
+        <h2 class="text-center mb-4">{% trans "Cours" %}</h2>
+        <div class="course-categories">
+            <a href="?category=">
+                <button type="button" class="btn {% if not request.GET.category %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    {% trans "All programs" %}
+                </button>
+            </a>
+
+            {% for category in categories %}
+            <a href="?category={{ category.name }}">
+                <button type="button" class="btn {% if request.GET.category == category.name %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    {{ category.name }}
+                </button>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <section class="container course-section">
+        <div class="row justify-content-end">
+            <!-- Loop through courses from the database -->
+            {% for course in courses %}
+            <div class="col-md-12 mb-4">
+                <!-- Card for each course -->
+                <div class="card course-card d-flex flex-column flex-md-row">
+                    <!-- Course Image -->
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" class="course-card-img" alt="{{ course.title }}">
+                    {% else %}
+                        <img src="{% static 'path/to/default-image.jpg' %}" class="course-card-img" alt="{{ course.title }}">
+                    {% endif %}
+
+                    <!-- Course Details -->
+                    <div class="card-body course-card-body">
+                        <!-- Course Date -->
+                        <div class="course-date">{{ course.start_date|date:"j - M Y" }} - {{ course.end_date|date:"j - M Y" }}</div>
+                        <br>
+
+                        <!-- Course Title -->
+                        <a href="{% url 'course_detail' course.id %}">
+                            <h5 class="course-card-title">{{ course.title }}</h5>
+                        </a>
+
+                        <!-- Course Description -->
+                        <p class="course-card-text">{{ course.description|truncatewords:20 }}</p>
+
+                        <!-- Course Meta (e.g., Students Count) -->
+                        <div class="course-meta d-flex justify-content-between align-items-center">
+                            <strong class="students-count" style="margin-left: 20px;">+{{ course.students_count }} students</strong>
+                        </div>
+
+                        <!-- Registration Button -->
+                        <a href="{% url 'register_course' course.id %}" class="btn btn-primary course-enroll-btn" style="margin-top: 30px;">{% trans "Registration" %}</a>
+                    </div>
+
+                    <!-- Course Pricing -->
+                    <div class="course-price-overlay">
+                        <span class="course-price">{{ course.currency }}{{ course.price }}</span>
+                        {% if course.discount_price %}
+                            <span class="course-price-discount">{{ course.currency }}{{ course.discount_price }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section class="container mt-5 mb-5">
+        <h2 class="text-center mb-5">{% trans "Entraînement" %}</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{% static 'eiad/img/pana.png' %}" alt="{% trans 'Training' %}" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <h3 class="mb-4 course-training-title">{% trans "Formation du personnel" %}</h3>
+                    <li class="course-training-item">
+                        <img src="{% static 'eiad/img/icon/Group 72.svg' %}" alt="{% trans 'Check Icon' %}" class="icon">
+                        {% trans "intégrer l'IA dans l'enseignement pour un apprentissage personnalisé" %}
+                    </li>
+                    <li class="course-training-item">
+                        <img src="{% static 'eiad/img/icon/Group 73.svg' %}" alt="{% trans 'Check Icon' %}" class="icon">
+                        {% trans "utiliser l'IA pour une prise de décision basée sur les données afin d'améliorer les résultats des étudiants" %}
+                    </li>
+                    <li class="course-training-item">
+                        <img src="{% static 'eiad/img/icon/users2.svg' %}" alt="{% trans 'Check Icon' %}" class="icon">
+                        {% trans "exploiter les outils administratifs basés sur l'IA pour améliorer l'efficacité des opérations quotidiennes." %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<!-- popper js -->
+<script src="eiad/js/popper.min.js"></script>
+<!-- easing js -->
+<script src="eiad/js/jquery.magnific-popup.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/swiper.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/masonry.pkgd.js"></script>
+<!-- particles js -->
+<script src="eiad/js/owl.carousel.min.js"></script>
+<script src="eiad/js/jquery.nice-select.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/slick.min.js"></script>
+<script src="eiad/js/jquery.counterup.min.js"></script>
+<script src="eiad/js/waypoints.min.js"></script>
+
+<!-- jQuery -->
+<script src="{% static 'eiad/js/jquery-1.12.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'eiad/js/bootstrap.min.js' %}"></script>
+<!-- Owl Carousel JS -->
+<script src="{% static 'eiad/js/owl.carousel.min.js' %}"></script>
+<!-- Custom JS -->
+<script src="{% static 'eiad/js/custom.js' %}"></script>
+{% endblock %}

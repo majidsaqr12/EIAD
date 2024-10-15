@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block header_section %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
+
+<style>
+    /* Styling for the header */
+header {
+    background-color: #fff;
+}
+
+.navbar-brand .logo {
+    width: 70px; /* Adjust as per your logo size */
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: #2A3E52;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3;
+}
+
+.navbar-nav .btn-primary {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.dropdown-toggle {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        padding-left: 15px; /* Adjusted padding for phone mode */
+        text-align: center;
+        font-size: 18px; /* Optional: Increase the font size for better readability on small screens */
+    }
+}
+@media (min-width: 992px) {
+    .navbar-nav .nav-item:last-child {
+        margin-left: 50px; /* Space between the last menu item and the button */
+    }
+
+    .navbar-nav .btn_1 {
+        margin-left: 20px; /* Space between the "Get a Quote" button and the language dropdown */
+    }
+}
+/* Language Switcher Styles */
+.lang-switcher {
+    border-radius: 50px;
+    background: linear-gradient(45deg, #5a99d4, #82c3e6);
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.lang-switcher:hover {
+    background: linear-gradient(45deg, #82c3e6, #5a99d4);
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2A3E52;
+}
+
+.dropdown-item i {
+    margin-right: 10px;
+}
+
+.dropdown-item:hover {
+    background-color: #e0e0e0;
+    color: #0056b3;
+}
+
+</style>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'eiad/img/logo.jpg' %}" alt="{% trans 'logo' %}" class="logo">
+            </a>
+
+            <!-- Toggler for mobile/tablet view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
+                    </li>
+
+                    <!-- Get a Quote button (visible on large screens) -->
+                    <li class="d-none d-md-block">
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                    </li>
+
+                    <!-- Language Switcher -->
+                    <li class="nav-item ml-3">
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == 'fr' %}
+                    <i class="flag-icon flag-icon-fr"></i> Français
+                {% else %}
+                    <i class="flag-icon flag-icon-gb"></i> English
+                {% endif %}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><button class="dropdown-item" type="submit" name="language" value="fr">
+                    <i class="flag-icon flag-icon-fr"></i> Français
+                </button></li>
+                <li><button class="dropdown-item" type="submit" name="language" value="en">
+                    <i class="flag-icon flag-icon-gb"></i> English
+                </button></li>
+            </ul>
+        </div>
+    </form>
+</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+{% endblock %}
+
+
+{% block hero_section %}
+<div class=""></div>
+{% endblock %}
+
+
+{% block content %}
+<section class="course_details_area mt-5 mb-5">
+    <div class="container">
+        <h2 class="mb-5">{% trans "Inscrivez-vous pour" %} {{ course.title }}</h2>
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <form class="form-contact contact_form" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">{% trans "Nom" %}</label>
+                                <input class="form-control" name="name" id="name" type="text" placeholder='{% trans "Brian Clark" %}'>
+                                {{ form.name.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">{% trans "E-mail" %}</label>
+                                <input class="form-control" name="email" id="email" type="email" placeholder='{% trans "example@youremail.com" %}'>
+                                {{ form.email.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="phone">{% trans "Téléphone" %}</label>
+                                <input class="form-control" name="phone" id="phone" type="text" placeholder='{% trans "(123)456-789" %}'>
+                                {{ form.phone.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="age">{% trans "Âge" %}</label>
+                                <input class="form-control" name="age" id="age" type="text" placeholder='{% trans "25" %}'>
+                                {{ form.age.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="whatsapp_number">{% trans "Numéro WhatsApp" %}</label>
+                                <input class="form-control" name="whatsapp_number" id="whatsapp_number" type="text" placeholder='{% trans "(123)456-789" %}'>
+                                {{ form.whatsapp_number.errors }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="button button-contactForm btn_1">{% trans "Registre" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- popper js -->
+<script src="eiad/js/popper.min.js"></script>
+<!-- easing js -->
+<script src="eiad/js/jquery.magnific-popup.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/swiper.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/masonry.pkgd.js"></script>
+<!-- particles js -->
+<script src="eiad/js/owl.carousel.min.js"></script>
+<script src="eiad/js/jquery.nice-select.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/slick.min.js"></script>
+<script src="eiad/js/jquery.counterup.min.js"></script>
+<script src="eiad/js/waypoints.min.js"></script>
+
+<!-- jQuery -->
+<script src="{% static 'eiad/js/jquery-1.12.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'eiad/js/bootstrap.min.js' %}"></script>
+<!-- Owl Carousel JS -->
+<script src="{% static 'eiad/js/owl.carousel.min.js' %}"></script>
+<!-- Custom JS -->
+<script src="{% static 'eiad/js/custom.js' %}"></script>
+{% endblock %}

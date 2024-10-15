@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block header_section %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
+
+<style>
+    /* Styling for the header */
+header {
+    background-color: #fff;
+}
+
+.navbar-brand .logo {
+    width: 70px; /* Adjust as per your logo size */
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: #2A3E52;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3;
+}
+
+.navbar-nav .btn-primary {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.dropdown-toggle {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        padding-left: 15px; /* Adjusted padding for phone mode */
+        text-align: center;
+        font-size: 18px; /* Optional: Increase the font size for better readability on small screens */
+    }
+}
+@media (min-width: 992px) {
+    .navbar-nav .nav-item:last-child {
+        margin-left: 50px; /* Space between the last menu item and the button */
+    }
+
+    .navbar-nav .btn_1 {
+        margin-left: 20px; /* Space between the "Get a Quote" button and the language dropdown */
+    }
+}
+/* Language Switcher Styles */
+.lang-switcher {
+    border-radius: 50px;
+    background: linear-gradient(45deg, #5a99d4, #82c3e6);
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.lang-switcher:hover {
+    background: linear-gradient(45deg, #82c3e6, #5a99d4);
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2A3E52;
+}
+
+.dropdown-item i {
+    margin-right: 10px;
+}
+
+.dropdown-item:hover {
+    background-color: #e0e0e0;
+    color: #0056b3;
+}
+a {
+  text-decoration: none;
+}
+</style>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'eiad/img/logo.jpg' %}" alt="{% trans 'logo' %}" class="logo">
+            </a>
+
+            <!-- Toggler for mobile/tablet view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
+                    </li>
+
+                    <!-- Get a Quote button (visible on large screens) -->
+                    <li class="d-none d-md-block">
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                    </li>
+
+                    <!-- Language Switcher -->
+                    <li class="nav-item ml-3">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% if LANGUAGE_CODE == 'fr' %}
+                                        <i class="flag-icon flag-icon-fr"></i> Français
+                                    {% else %}
+                                        <i class="flag-icon flag-icon-gb"></i> English
+                                    {% endif %}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    <li><button class="dropdown-item" type="submit" name="language" value="fr">
+                                        <i class="flag-icon flag-icon-fr"></i> Français
+                                    </button></li>
+                                    <li><button class="dropdown-item" type="submit" name="language" value="en">
+                                        <i class="flag-icon flag-icon-gb"></i> English
+                                    </button></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+{% endblock %}
+
+{% block hero_section %}
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left content -->
+            <div class="col-md-6 text-md-start text-center">
+                <h4>{% trans "Tout le monde aspire à apprendre" %}</h4>
+                <h1 style="font-size: 50px;">{% trans "À EIAD" %}</h1>
+                <p>{% trans "Préparez-vous à Façonner L’avenir ! Découvrez votre potentiel en IA et en marketing : chez EIAD, nous formons les futurs talents de l’Intelligence Artificielle et du marketing digital. Nous préparons en amont les exigences de demain, afin de vous munir des compétences nécessaires pour façonner l’avenir et relever les défis d’un monde en changement !" %}</p>
+                <div class="cta-buttons mt-4">
+                    <a href="{% url 'courses' %}" class="btn_1">{% trans "Voir les cours" %}</a>
+                    <a href="{% url 'courses' %}" class="btn_2">{% trans "Commencer" %}</a>
+                </div>
+            </div>
+
+
+            <!-- Right content (Image and Stats) -->
+            <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
+                <img src="{% static 'eiad/img/banner.png' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Logos -->
+        <div class="logo-group mt-4">
+            <div class="row justify-content-start">
+                <div class="col-auto">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTg8THwdvcV4T0nRHia0K7MMCZjJgGkph77KvGQJN9qUb4X9i07Vx_jpUy1D859hfTy8&usqp=CAU" alt="{% trans 'Google Logo' %}" class="img-fluid logo-img">
+                </div>
+                <div class="col-auto">
+                    <img src="https://www.capgemini.com/wp-content/uploads/2024/07/oracle.png" alt="{% trans 'Oracle Logo' %}" class="img-fluid logo-img">
+                </div>
+                <div class="col-auto">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAz1BMVEX///8lLz7/mQD/kgD/lAD/lgD/kQAfKjobJzcAECgiLDwaJjcADCZfZW4RHzIAFStscHgNHTAGGS0ABySdoKUWIzTAwsUAACHf4OKxs7fX2Np9gYj39/j/8+bd3uDn6OmChoyKjpSWmZ6ztblGTVjFx8pVW2X/69b/5Mn/qUP//fj/8eH/16/S09UAAB5zeH8tN0VlanP/zZn/xYb/sVf/ypT/oCKmqK06Qk5CSVX/5sv/0qX/u3P/pTL/wYD/2rX/t2cAAAz/rlD/pzz/oSv+y1X4AAAOuklEQVR4nO1c6WKiSreNIiCDICAOicY4RE2i0RiN6WiiX3e//zNdEGqCKjTdoPY9tf6c04pF1WLvVXsocnXFwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwZERmvXJZHJ/P7ltN889lavmpLpaVSqr6qR9rincNu76mq6YeyiKOStV7s9GTHtVknXTtizDsGxTd/t3jfqpp1AZKIrlyjkMatEw9dJ9/NppOcC0wRyvehNe02GvBF5zE2O+19etoopPRnYtRbuJTyYrNFc/HIOgA6Fo5qIrn9rFAJoyZYzYfXa14BL3+ZpxzQpcU1S65DcN16bORnVNufKXaz0O7RvFYhASzMR8J935xoXfOQxHNzFSS4z72vASg+Dk9t0kLIScjKVN0lh0Mm6eXeYMQshOFf9Fj7UaiHuMk5xJ16QqGsXGh688Jz0gj5Va5rpSshNnEKK2wn7S1hFbfeqgHZxmk/5gMWvTMdamyqG5uDcpLp+GZu0YSnK5Z1zd+uhJ6lQj6OOP2qBLwAw6CO5d08OPSB6kSQAFt/HHotK8WTWwxVcM+LlJ2wmaxKB0QcGMzeqhkXGn2xNQ1DwhlvEpMWwzPeCc+Huv4niSr5k1xY5sRG4Z/aiOfuR2KINOyJXZtBv3LPi9AoX6mrDaoq2b/dLLtPwymDmKDQKF03EiW4pcXt2D6bWrlb6i4TOs3aJfIbuXf1AGxexov+ZbyjVTODi2xnfsObhmuYrtau1qtx/sjyfiRLb0wSom5/Wpg9ls8QV906HrI0CpSHBireKXXGlwaAN+3cPsS48HclfNxkB3c8Ws9aSue5GQ01/R98uJjZHioGsw57ApgoKkYg+NEtnV0TU6fBg/kJk4vfhvfNzeOP9jfJUe1Nqsw86w6tiTs7B4Fn1MEZSobqtafOAGlBN1Bm+GyW5CuHqCFCw55Wyg1RNbJlKDuKCswHqBkSnxe5She7nd2O88tf+LBWWPd+Q9LvoUC0KV2HMra4Cu8Ld23NqRnCgwH0JEZx6W/R3Qw8McH49AiMB8jzDAUWcNg7VE5F5qDn44gHJisRPuSwAWW+GrR/OPCQr4hTYFcYz6Hh0VMe3ewQ+RScZ5viy8UzZNwvejCwYpovewgRjFNmy0W2OBMLrThdsJroaYRWDmU4ssGCR3nquVZMZzRw5poA9RlqRdtp5cdV3qTNmGHn6jyiigjfrXNZQTDUsZyihuNs5fDE4C8pIiNn+MKkwRfDSdcLUvKLaLhuMo+McJxVKCC9940LaLR/fYo0ZBF3G9rz5N8NuIfyGFxr+YYLGecpoa4x8C44RI+rEIgwjJQC5k+nEHkIhIXQmmv2TuomGZhFm+YPdhcYLqZKSggKRlXyEAHkbWlVC6RG4wHTyf1pTKxbLC4gTVXAnnb4YbUlANAxeRtbEuXDtZ426SyaNh3pygHn0Ems12k3g+LE6gVpCCAmwgsAxY2rTwn8JNN6q93UjlUTNP2dKhoN27G8iO7sHR5X7pplLdx/IsTq5e4NapY08bbB6hgoAtW8G6PE1oYbFS7Xu0Zq+6pjmtnseJ6t133XZh3VOVi5ph6+6gU21AQ49wgtJ9PMcDW4oT/BMoLl5XQl6nROtYbVprR7PNUuPkHePJwHGpfSbZtZHuRThBoSwezIWXA68AVobHNrBKF8+DriYOdR5Fi1n3ygbNslOkTSQ2sUgBHsoCltuCsAVURUAEp6rod7Cc5lI6ZhNTi943ZNlyXk4muRPjYCOQzgmKO5GggKgXpnZAUFChAdBEigxEu89sjRb1wWnOFqye2d3ZZE5QrRB1aEDGCCtNIIxBl0DRptUkfTQMi8nKM613kjZWTvzOKrXtFW9ewZYGqkKHoagMlQL0cZDm3AGzjCRKCM2VyvKgnN3PXFaqZG9UNsyg22XYpmJaLtGAi3GCxBKoBdBdlAi3QV0Jag5kktpDDHFfVmyN+mS0XMaktInI0TVLFXhMqtme9DoDVWfuO3iMDlIeYBVYuA8q1SBkRbc0rhJRnWombTfU4rtVqhhgJqo6d5QgoL1ixSceoDiDvOUmHA+L4qZFkibYFMVLJwxMOjk9fljIyLSQMMHMRJ7RNR21eOKcwEo7EJTQKLDNGYZ2wJ0AbUcWXW+774oRsRaHdfQpDQxQXKKy3PQ2gRO0hQSCAsQDD+LA7gQaQVBO4k0QBtqVd4UwFubRpxTQxvYcJvfXCZw0n8F3OpEbWXhDB/hKcF4Jysm32r73fQW3FdaRsRSA9W5oPd0AkwROUMEsEBSwEeFJIQxZgm0GZknfrM1X8TOZjCNjaQDr/1NDyj3uWXmxD8hqkM+EUTsuJ+iaYCFQgmrffNbNGSIlw+MWqFrhF9kZQIdnKJwg7zOvUHeQ3FFAzy+oK4Gg4/vLamP9fOe7Pz4WKPFIOiOGCvQ0aYP5nH/wBhQBIm4BBvBpg/kA45RbEvBTL1kJShvVyROaTMjBaMTBMqJfIAH/iBxMAiP4VWvobPr3szmk9rSTCukAP5Z2x7wKPZxI0yKYJxjDb+eEihvN7UD+7Hc3QHGOUjo5CKxcGytGpYX6MXaCHf+lig7IiHwiQl8k+kBXaOfyaQNmQiudHATy9czsBPMdtp7gR10VyvewpaHUgW0b0fNrgFYbmRV7n2MDsxMnqzwQuwdeBiPQwI910pQN2pHRAJVbM7peEMUoMHlS3fhIB4GiArINkCqwMJZ6XpNwrxzjlDiMS6cg9KhFLwHaa1VfQrlN0C820Dkm7eXw1X8I1LZlTLJOZl/U/RO2NGbhf+N+CASlWAbXJJVOWMCODlJPl6YD/FUBnWIo9wqZkFI3i170hHw88IaBENzWaUer24Y5TShCN3NoMvRT/qkAb+SravQ+zZvIOVfPwyhzbkevonhYP1IDoZZOKlZOU340GMu9ltEYGboOqoHtTd4g7LndNUMrUg+sJbpgSg2gE+kMUEsne9WRLaXUi0t5farjp5fp4pcOsMTYW7syCA+4t+877w5YhoGdBqXuPJHT9bRE5j7iX9TXnIASFy1dfen2rsO2dbNd7fzQ8ZK1cZceAxSQZWDZVtT32czVbZSYK502VsamGQq5N1Hf1CBfXmGUTtBpAy8AdC1TN/1ZyKZik69uypRwOk1Uo2KgRvoYSoc4Z5Z7phjKjPgF7QB+pDdOL510SXsLZxP/zMy6dTy1YjfF4fgPHVdRWjmOVAtqSfGOuIReOmkc9RaeqmffIC0lkCLXggfagddYNKsnXmGiJ3dVfL3Ud378QuYRDUlNO0V39CX6uhmEDd+hDUtcqkNPFfHIjvriF1H5Zb50MbEPNa69beA0hwu6NeqpAhc7ehhUglyZEX12MVtjvGKNb9jMBK55U0t601m13cxf3QFol/QoK7Jtd/CZV581zWGWsZvvuhXArjGKDrc12whgPScE5s2VNxS1J6pqyiy7iJ6C66mhWNq+FKLKmmEqg+gDuS4lHv647zX26DGjqWavEuDQn2Kor15kLxjA/1qBqhmKe4bzfter6SBn1+zZYHrGv2YRol3tlmeOoyj+39fQa7NyJcvO37+EZrt+fRF/h4WDg4ODg4ODg4ODgyNjtIaj7Xi93m5HH63Hc0/m/BiuN5+i4KHgw/9vfrEcnXtW50Nr/eBxIOYjEAtC4eu/aS7bBynOB0Ahn9p9PrapDZUx5qLAJMSHkNZK5pKQ/ydYGYuFJEJ8Q3lN6VY7j3rhc5jSaJmh9SAcYMQTlU1KNxtK/mjSopXSeNmghWREFMVCCFHMhpOrj71JitLmkmX7VfCY8HZdKf/2sNi8LpdzD8vN4k0qZMHJ1VN+T3dBeL1cVoYPi6/1dvgUm+HjOA+NJTU98cf9DMi+aFbYWABSCutUhw0FrFD4B1lpAfUV0o1lXyXAtbC5bLWlAPiO9JTuuFu41YnS7uJ3ZhJvwE7SHvgJaZUo/fynMqqQE/Eh/aEXKCoShfz8ooWl9YF5eAbbDsRcyiN4wnKxLjT6KQkSDEYehUwkNsQwj6cUovR7fYHG8rjM71NBCey8H2DTzGiyO9xUvNtIu49sbvSnGC1A5Cruwo/mwQfiz6zuOY6k46L0tryYzXm4waoFArCTMGZLN2IjEE9AC9Kv9QXQ8hT6DJgV3GXCD4Us/Xwdq9yIBenhvLS05kS256kJlNihkLHrBBOg1Cq8rPTXPOU48VgMl59CITIbtMcsg69SK7KxQK1pedaSfz215D6ONnkhOhlhgfkJiGKzn8qXRC19FoTCYnwyLxrOH4R4CVYsjLFrnoKdsjA/wXyeWMU+z4vym+x5aY13eUrTwlOSHSGm4U6cVXASwTbPLAr7brQbZyYvT+NNntG0EN4i3vs7oCSLuJ6KeSGhVO7xIv583aZsMK3R/CeLD7++Ew1CgOucLuBmyQrixfP3n6/jYRpTetouF3lakw/eTYq3+l73T004hZpAtHbJrOyJKQjS22K5/VNmHofb5e5TSKJjz8iOYpPBd29/t8hv4+kwK4AZIf+5e11vj2z0P7Y+tuuvxW/fNhLZCBmhyddovxFIp0/KWptYhJBMjeCzs9h9Ldfr7Wjo4WkP///2BySWX7uH/P66aIvme4wEHbt84evEhOzR+kpSW8Y6gt6UEEXQrDqKihDsGvG+dCL+Pi0Z6O7LAw3srODddsl0xbX/pApnzMS2n0cJS7qMSL+S8hg/rhfOWw4cbgqnNBbxUP3T73VLZy+nP45/Sd9Wlj9DQfo1PrB/fYkZFWG/i9Yynz0tBelteTh12Ej5i6mjD18zpcUn5Li1XgwjewyXv5PDzj+EpyGf56pdpYDWelFIlZcg276A0u/fYbT8JaXCi3+Yc7H+dw2ExOPIS2f/hhg/uc7v/t/wAfG0fX0QpWPTF8iGuM+o56MLbDemhNZovnkQ9ylNMjdikCnmF1/pVF4uHo9Po/Xr7uG3l6lI8FA8OBnvfSS+fS6+ltvRf/LNgcfH1vBjtB2P1+v5fL4ej0ejj2Hr8b9IBQcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHB8c/gf8Dg4AsXANis/IAAAAASUVORK5CYII=" alt="AWS Logo" class="img-fluid logo-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-lg-6">
+            <img src="{% static 'eiad/img/about.png'%}" alt="{% trans 'About Us Image' %}" class="img-fluid">
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="learning_member_text">
+                <h5>{% trans "À propos de nous" %}</h5>
+                <h2>{% trans "Pourquoi choisir EIAD ?" %}</h2>
+                <p>{% trans "Parce que vous bénéficierez d’une pédagogie innovante reposant sur le concept du “learning by doing”, vous profiterez d’un corps de formateurs expérimentés et dévoués à votre réussite, d’équipements d’apprentissage modernes et d’une liste de partenaires performants !" %}</p>
+                <a href="{% url 'about' %}" class="btn_1 mt-3">{% trans "En savoir plus" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="specialities-section feature_part py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left content (Heading, Description, Button) -->
+            <div class="col-md-6">
+                <h2>{% trans "Deux spécialités stratégiques" %}</h2>
+                <p>{% trans "Avec notre spécialité Technicien Spécialisé en IA et aussi Technicien Spécialisé en Marketing & IA, pour suivre vos rêves !" %}</p>
+                <a href="#" class="btn_1 mt-3">{% trans "En savoir plus" %}</a>
+            </div>
+
+            <!-- Right content (Cards) -->
+            <div class="col-md-6">
+                <div class="row justify-content-end">
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="single_feature">
+                            <div class="single_feature_part">
+                                <span class="single_feature_icon"><i class="ti-new-window"></i></span>
+                                <h4>{% trans "Technicien Spécialisé en IA" %}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="single_feature">
+                            <div class="single_feature_part single_feature_part_2">
+                                <span class="single_service_icon style_icon"><i class="ti-light-bulb"></i></span>
+                                <h4>{% trans "Technicien Spécialisé en Marketing & IA" %}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="member_counter mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_member_counter">
+                    <span class="counter">1024</span>
+                    <h4>{% trans "All Teachers" %}</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_member_counter">
+                    <span class="counter">960</span>
+                    <h4>{% trans "All Students" %}</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_member_counter">
+                    <span class="counter">1020</span>
+                    <h4>{% trans "Online Students" %}</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_member_counter">
+                    <span class="counter">820</span>
+                    <h4>{% trans "Offline Students" %}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial_part mt-5 mb-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 text-center mb-5">
+                <h2>{% trans "Témoignage étudiant" %}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="textimonial_iner owl-carousel">
+                    <div class="testimonial_slider d-flex align-items-start mb-4">
+                        <div class="testimonial_slider_img">
+                            <img src="{% static 'eiad/img/testimonial_img_1.png' %}" alt="{% trans 'Testimonial Image 1' %}" class="img-fluid">
+                        </div>
+                        <div class="card ml-3">
+                            <div class="card-body">
+                                <p class="card-text">{% trans "Behold place was a multiply creeping." %}</p>
+                                <h4 class="card-title">Michel Hashale</h4>
+                                <h5 class="card-subtitle mb-2 text-muted">{% trans "Sr. Web Designer" %}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_slider mb-4 d-flex align-items-start">
+                        <div class="testimonial_slider_img" style="flex: 0 0 30%; max-width: 30%;">
+                            <img src="{% static 'eiad/img/testimonial_img_2.png' %}" class="img-fluid" alt="{% trans 'Testimonial Image 2' %}" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="card" style="flex: 1; margin-left: 20px;">
+                            <div class="card-body">
+                                <p class="card-text">{% trans "This is another testimonial text for a different student experience." %}</p>
+                                <h4 class="card-title">Jane Doe</h4>
+                                <h5 class="card-subtitle mb-2 text-muted">{% trans "Graphic Designer" %}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_slider mb-4 d-flex align-items-start">
+                        <div class="testimonial_slider_img" style="flex: 0 0 30%; max-width: 30%;">
+                            <img src="{% static 'eiad/img/testimonial_img_3.png' %}" class="img-fluid" alt="{% trans 'Testimonial Image 3' %}" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="card" style="flex: 1; margin-left: 20px;">
+                            <div class="card-body">
+                                <p class="card-text">{% trans "Another great experience shared by a student about their journey." %}</p>
+                                <h4 class="card-title">John Smith</h4>
+                                <h5 class="card-subtitle mb-2 text-muted">{% trans "Software Engineer" %}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog_part section_padding mt-3 mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 text-center">
+                <h2 class="mb-5">{% trans "Blogs" %}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in latest_posts %}
+            <div class="col-sm-6 col-lg-4 col-xl-4">
+                <div class="single-home-blog">
+                    <div class="card">
+                        <a href="{{ post.get_absolute_url }}">
+                            <img src="{{ post.image.url }}" class="card-img-top" alt="{% trans 'blog' %}">
+                        </a>
+                        <div class="card-body">
+                            <a href="#" class="btn btn-info">{{ post.category.name }}</a>
+                            <a href="{{ post.get_absolute_url }}">
+                                <h5 class="card-title mt-3">{{ post.title }}</h5>
+                            </a>
+                            <p>{{ post.content|truncatewords:20 }}</p>
+                            <ul>
+                                <li><span class="ti-comments"></span>{{ post.comments.count }} {% trans "Comments" %}</li>
+                                <li><span class="ti-heart"></span>2k {% trans "Like" %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- popper js -->
+<script src="eiad/js/popper.min.js"></script>
+<!-- easing js -->
+<script src="eiad/js/jquery.magnific-popup.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/swiper.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/masonry.pkgd.js"></script>
+<!-- particles js -->
+<script src="eiad/js/owl.carousel.min.js"></script>
+<script src="eiad/js/jquery.nice-select.min.js"></script>
+<!-- swiper js -->
+<script src="eiad/js/slick.min.js"></script>
+<script src="eiad/js/jquery.counterup.min.js"></script>
+<script src="eiad/js/waypoints.min.js"></script>
+
+<!-- jQuery -->
+<script src="{% static 'eiad/js/jquery-1.12.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'eiad/js/bootstrap.min.js' %}"></script>
+<!-- Owl Carousel JS -->
+<script src="{% static 'eiad/js/owl.carousel.min.js' %}"></script>
+<!-- Custom JS -->
+<script src="{% static 'eiad/js/custom.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize Owl Carousel
+        $('.textimonial_iner').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            autoplay: true, 
+            autoplayTimeout: 3000, 
+            autoplayHoverPause: true, 
+            responsive: {
+                0: {
+                    items: 1 
+                },
+                600: {
+                    items: 2 
+                },
+                1000: {
+                    items: 3 
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

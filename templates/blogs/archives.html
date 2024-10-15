@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block hero_section %}
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>{% trans "Notre blogs" %}</h2>
+                        <p>
+                            <a href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                            <span>/</span>
+                            <a href="{% url 'archive' %}">{% trans "Blogs" %}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="blog_area section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    <!-- Loop through posts -->
+                    {% for post in page_obj %}
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{ post.image.url }}" alt="">
+                            <a href="{{ post.get_absolute_url }}" class="blog_item_date">
+                                <h3>{{ post.updated_at.day }}</h3>
+                                <p>{{ post.updated_at|date:"M" }}</p>
+                            </a>
+                        </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{{ post.get_absolute_url }}">
+                                <h2>{{ post.title }}</h2>
+                            </a>
+                            <p>{{ post.content|truncatewords:30 }}</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="far fa-user"></i> {{ post.category.name }}</a></li>
+                                <li><a href="#"><i class="far fa-comments"></i> {% trans "03 Comments" %}</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    {% endfor %}
+
+                    <!-- Pagination -->
+                    <nav class="blog-pagination justify-content-center d-flex">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="{% trans 'Previous' %}">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% for num in page_obj.paginator.page_range %}
+                            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="{% trans 'Next' %}">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Blog Sidebar -->
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+
+                    <!-- Search Form -->
+                    <aside class="single_sidebar_widget search_widget">
+                        <form action="{% url 'archive' %}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="{% trans 'Search Keyword' %}" name="query" value="{{ query }}">
+                                    <div class="input-group-append">
+                                        <button class="btn" type="submit"><i class="ti-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">{% trans "Recherche" %}</button>
+                        </form>
+                    </aside>
+
+                    <!-- Categories -->
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">{% trans "Catégorie" %}</h4>
+                        <ul class="list cat-list">
+                            {% for category in categories %}
+                            <li>
+                                <a href="?category={{ category.id }}" class="d-flex">
+                                    <p>{{ category.name }}</p>
+                                    <p>({{ category.post_set.count }})</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </aside>
+
+                    <!-- Recent Posts -->
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">{% trans "Blogs récents" %}</h3>
+                        {% for post in recent_posts %}
+                        <div class="media post_item">
+                            <img src="{{ post.image.url }}" alt="{% trans 'post' %}">
+                            <div class="media-body">
+                                <a href="{{ post.get_absolute_url }}">
+                                    <h3>{{ post.title }}</h3>
+                                </a>
+                                <p>{{ post.updated_at|date:"M d, Y" }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </aside>
+
+                    <!-- Tag Cloud -->
+                    <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">{% trans "Nuages ​​de tags" %}</h4>
+                        <ul class="list">
+                            {% for tag in tags %}
+                            <li><a href="?tag={{ tag.name }}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

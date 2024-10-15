@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block hero_section %}
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>{{ post.title }}</h2>
+                        <p>
+                            <a href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                            <span>/</span>
+                            <a href="{% url 'archive' %}">{% trans "Blog" %}</a>
+                            <span>/</span>
+                            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<style>
+    .user-icon {
+        font-size: 2.5rem;
+        color: #2A3E52;
+        background-color: #f0f0f0;
+        border-radius: 50%;
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<section class="blog_area single-post-area section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </div>
+                    <div class="blog_details">
+                        <h2>{{ post.title }}</h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="far fa-user"></i> {{ post.category.name }}</a></li>
+                            <li><a href="#"><i class="far fa-comments"></i> {{ comments.count }} {% trans "Commentaires" %}</a></li>
+                        </ul>
+                        <p class="excert">{{ post.content }}</p>
+                    </div>
+                </div>
+
+                <!-- Section des commentaires -->
+                <div class="comments-area">
+                    <h4>{{ comments.count }} {% trans "Commentaires" %}</h4>
+                    {% for comment in comments %}
+                    <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <i class="fas fa-user user-icon"></i>
+                                </div>
+                                <div class="desc">
+                                    <p class="comment">{{ comment.content }}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5><a href="#">{{ comment.author }}</a></h5>
+                                            <p class="date">{{ comment.created_at|date:"d M, Y" }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Formulaire de commentaire -->
+                <div class="comment-form">
+                    <h4>{% trans "Laissez un commentaire" %}</h4>
+                    <form class="form-contact comment_form" method="POST" action="{% url 'post_detail' post.pk %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="content" cols="30" rows="9" placeholder="{% trans 'Écrire un commentaire' %}"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" type="text" placeholder="{% trans 'Nom' %}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" type="email" placeholder="{% trans 'E-mail' %}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button btn_1">{% trans "Envoyer" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Barre latérale (Articles associés, Catégories) -->
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <!-- Articles associés -->
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">{% trans "Articles associés" %}</h3>
+                        {% for related_post in related_posts %}
+                        <div class="media post_item">
+                            <img src="{{ related_post.image.url }}" alt="{% trans 'article' %}">
+                            <div class="media-body">
+                                <a href="{{ related_post.get_absolute_url }}">
+                                    <h3>{{ related_post.title }}</h3>
+                                </a>
+                                <p>{{ related_post.updated_at|date:"d M, Y" }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </aside>
+
+                    <!-- Catégories -->
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">{% trans "Catégorie" %}</h4>
+                        <ul class="list cat-list">
+                            <li>
+                                <a href="#" class="d-flex">
+                                    <p>{{ post.category.name }}</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

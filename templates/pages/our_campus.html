@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block hero_section %}
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>{% trans "Nos Campus" %}</h2>
+                        <p>
+                            <a href="{% url 'index' %}">{% trans "Accueil" %}</a>
+                            <span>/</span>
+                            <a href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+{% block content %}
+<!-- learning part start-->
+<section class="learning_part">
+    <div class="container our-company py-5">
+        <div class="row mb-5">
+            <div class="col-md-12 text-center">
+                <h2 class="our-company-title text-primary">{% trans "Espaces Éducatifs Modernes et Inspirants" %}</h2>
+                <div class="title-underline mx-auto"></div>
+            </div>
+            <div class="col-md-12">
+                <div class="card our-company-card">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-6">
+                            <img src="{% static 'eiad/img/Blog_Card.png' %}" alt="{% trans 'Classroom' %}" class="img-fluid our-company-img">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <ul class="list-unstyled mt-3">
+                                <li>{% trans "Salles de classe modernes et lumineuses." %}</li>
+                                <li>{% trans "Laboratoires équipés de technologie de pointe." %}</li>
+                                <li>{% trans "Bibliothèques confortables." %}</li>
+                                <li>{% trans "Espaces de travail collaboratif." %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: EIAD Tetouan and EIAD Tangier -->
+        <div class="row mb-5">
+            <div class="col-md-12 text-center">
+                <h2 class="our-company-title text-primary">{% trans "EIAD Tétouan et EIAD Tanger" %}</h2>
+                <div class="title-underline mx-auto"></div>
+            </div>
+            <div class="col-md-12">
+                <div class="card our-company-card">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-6">
+                            <img src="{% static 'eiad/img/2.png' %}" alt="{% trans 'EIAD Tetouan and Tangier' %}" class="img-fluid our-company-img">
+                        </div>
+                        <div class="col-md-6 p-4">
+
+                            <h4>{% trans "Attractivité, Dynamisme Économique et Projets Innovants" %}</h4>
+                            <p class="mt-3">
+                                {% trans "Tétouan et Tanger, accueillant les campus de l'EIAD, sont des villes dynamiques et attractives, avec une économie en plein essor et des projets d'innovation majeurs. Elles offrent un environnement propice aux affaires, à l'innovation et à la culture, idéal pour les étudiants et les professionnels." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Northern Morocco -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="our-company-title text-primary">{% trans "Le Nord du Maroc" %}</h2>
+                <div class="title-underline mx-auto"></div>
+            </div>
+            <div class="col-md-12">
+                <div class="card our-company-card">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-6">
+                            <img src="{% static 'eiad/img/4.png' %}" alt="{% trans 'Northern Morocco' %}" class="img-fluid our-company-img">
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h4>{% trans "Un Pôle d'Innovation et d’Opportunités" %}</h4>
+                            <p class="mt-3">
+                                {% trans "Le Nord du Maroc est un territoire dynamique qui s'engage vers la modernité et l'innovation technologique. Des entreprises de pointe se développent dans les secteurs de l'IA et du marketing digital, créant des opportunités d'emploi et des perspectives de carrière excitantes." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
