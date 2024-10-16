@@ -2,6 +2,16 @@
 {% load static %}
 {% load i18n %}
 
+
+{% block seo %}
+<meta name="description" content="{% trans 'Découvrez la mission d\'EIAD : former une nouvelle génération de talents au Maroc, adaptés aux exigences du marché actuel dans les domaines de l\'intelligence artificielle et du marketing digital.' %}">
+<meta name="keywords" content="{% trans 'EIAD, mission EIAD, formation en IA, marketing digital, école technologique, valeurs EIAD, talents marocains' %}">
+<meta property="og:title" content="{% trans 'À propos d\'EIAD - Formation en IA et Marketing Digital' %}">
+<meta property="og:description" content="{% trans 'Apprenez-en davantage sur la mission et les valeurs d\'EIAD : préparer les étudiants à exceller dans les secteurs de l\'intelligence artificielle et du marketing digital.' %}">
+<meta property="og:image" content="{% static 'eiad/img/about_1.png' %}">
+<meta property="og:type" content="website">
+{% endblock %}
+
 {% block hero_section %}
 <section class="breadcrumb breadcrumb_bg">
     <div class="container">

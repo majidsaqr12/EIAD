@@ -2,6 +2,15 @@
 {% load static %}
 {% load i18n %}
 
+{% block seo %}
+<meta name="description" content="{% trans 'Découvrez les cours proposés par EIAD School, couvrant l\'IA, le marketing digital, et plus encore. Apprenez auprès des experts du secteur et développez des compétences pour réussir dans votre carrière.' %}">
+<meta name="keywords" content="{% trans 'cours EIAD, intelligence artificielle, marketing digital, formation en IA, programmes d\'éducation, formation technologique, développement professionnel' %}">
+<meta property="og:title" content="{% trans 'Cours à EIAD School - Apprenez l\'IA, le marketing digital, et plus' %}">
+<meta property="og:description" content="{% trans 'Explorez notre sélection de cours innovants dans les domaines de l\'intelligence artificielle, du marketing digital, et bien plus. Apprenez à votre rythme avec EIAD.' %}">
+<meta property="og:image" content="{% static 'eiad/img/about.png' %}">
+<meta property="og:type" content="website">
+{% endblock %}
+
 {% block header_section %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
 
@@ -216,6 +225,35 @@ header {
     background-color: #e0e0e0;
     color: #0056b3;
 }
+.pagination {
+    display: inline-flex; /* Use inline-flex to center the pagination */
+    justify-content: center; /* Center the pagination links */
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.pagination-link {
+    display: inline-block; /* Make links inline */
+    padding: 10px 15px; /* Add padding */
+    margin: 0 5px; /* Space between links */
+    border: 1px solid #007bff; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    color: #007bff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s; /* Transition for hover effects */
+}
+
+.pagination-link:hover {
+    background-color: #007bff; /* Background on hover */
+    color: white; /* Text color on hover */
+}
+
+.current {
+    margin: 0 10px; /* Space around current page */
+    font-weight: bold; /* Make current page bold */
+    color: #4A4A4A; /* Current page color */
+}
 
 </style>
 <header>
@@ -248,15 +286,12 @@ header {
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
                     </li>
 
                     <!-- Get a Quote button (visible on large screens) -->
                     <li class="d-none d-md-block">
-                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Rejoignez EIAD" %}</a>
                     </li>
 
                     <!-- Language Switcher -->
@@ -300,7 +335,7 @@ header {
             <div class="col-md-6">
                 <h2 class="section-heading">{% trans "Apprenez une nouvelle compétence tous les jours, à tout moment et en tout lieu." %}</h2>
                 <p class="section-description">
-                    {% trans "Des cours couvrant tous les domaines technologiques vous permettent d'apprendre et d'explorer de nouvelles opportunités. Apprenez auprès d'experts du secteur et décrochez l'emploi de vos rêves." %}
+                    {% blocktrans %}Des cours couvrant tous les domaines technologiques vous permettent d'apprendre et d'explorer de nouvelles opportunités. Apprenez auprès d'experts du secteur et décrochez l'emploi de vos rêves{% endblocktrans %}
                 </p>
 
                 <div class="stats d-flex mt-4">
@@ -352,46 +387,36 @@ header {
 
     <section class="container course-section">
         <div class="row justify-content-end">
-            <!-- Loop through courses from the database -->
             {% for course in courses %}
             <div class="col-md-12 mb-4">
-                <!-- Card for each course -->
                 <div class="card course-card d-flex flex-column flex-md-row">
-                    <!-- Course Image -->
                     {% if course.image %}
                         <img src="{{ course.image.url }}" class="course-card-img" alt="{{ course.title }}">
                     {% else %}
                         <img src="{% static 'path/to/default-image.jpg' %}" class="course-card-img" alt="{{ course.title }}">
                     {% endif %}
 
-                    <!-- Course Details -->
                     <div class="card-body course-card-body">
-                        <!-- Course Date -->
                         <div class="course-date">{{ course.start_date|date:"j - M Y" }} - {{ course.end_date|date:"j - M Y" }}</div>
                         <br>
 
-                        <!-- Course Title -->
-                        <a href="{% url 'course_detail' course.id %}">
-                            <h5 class="course-card-title">{{ course.title }}</h5>
-                        </a>
+                        <h5 class="course-card-title">
+                            <a href="{% url 'course_detail' course.id %}">{{ course.title }}</a>
+                        </h5>
 
-                        <!-- Course Description -->
                         <p class="course-card-text">{{ course.description|truncatewords:20 }}</p>
 
-                        <!-- Course Meta (e.g., Students Count) -->
                         <div class="course-meta d-flex justify-content-between align-items-center">
                             <strong class="students-count" style="margin-left: 20px;">+{{ course.students_count }} students</strong>
                         </div>
 
-                        <!-- Registration Button -->
                         <a href="{% url 'register_course' course.id %}" class="btn btn-primary course-enroll-btn" style="margin-top: 30px;">{% trans "Registration" %}</a>
                     </div>
 
-                    <!-- Course Pricing -->
                     <div class="course-price-overlay">
-                        <span class="course-price">{{ course.currency }}{{ course.price }}</span>
+                        <span class="course-price">${{ course.price }}</span>
                         {% if course.discount_price %}
-                            <span class="course-price-discount">{{ course.currency }}{{ course.discount_price }}</span>
+                        <span class="course-price-discount">${{ course.discount_price }}</span>
                         {% endif %}
                     </div>
                 </div>
@@ -399,6 +424,30 @@ header {
             {% endfor %}
         </div>
     </section>
+
+
+
+    <!-- Pagination controls -->
+    <div class="container text-center mt-4">
+        <div class="pagination">
+            <span class="step-links">
+                {% if courses.has_previous %}
+                    <a href="?page=1" class="pagination-link">&laquo; First</a>
+                    <a href="?page={{ courses.previous_page_number }}" class="pagination-link">Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ courses.number }} of {{ courses.paginator.num_pages }}.
+                </span>
+
+                {% if courses.has_next %}
+                    <a href="?page={{ courses.next_page_number }}" class="pagination-link">Next</a>
+                    <a href="?page={{ courses.paginator.num_pages }}" class="pagination-link">Last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
 
     <!-- Training Section -->
     <section class="container mt-5 mb-5">

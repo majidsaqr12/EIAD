@@ -2,6 +2,14 @@
 {% load static %}
 {% load i18n %}
 
+{% block seo %}
+<meta name="description" content="{% trans 'Découvrez les campus de EIAD à Tétouan et Tanger : des espaces éducatifs modernes et inspirants, propices à l\'innovation et aux nouvelles opportunités dans les secteurs de l\'IA et du marketing digital.' %}">
+<meta name="keywords" content="{% trans 'EIAD campus, EIAD Tétouan, EIAD Tanger, espaces éducatifs modernes, innovation au Maroc, intelligence artificielle, marketing digital' %}">
+<meta property="og:title" content="{% trans 'EIAD Tétouan et Tanger - Espaces Éducatifs Inspirants et Innovants' %}">
+<meta property="og:description" content="{% trans 'Explorez les campus modernes de EIAD à Tétouan et Tanger. Découvrez un environnement propice à l\'innovation technologique, aux nouvelles idées et aux opportunités de carrière dans les secteurs de l\'IA et du marketing digital.' %}">
+<meta property="og:image" content="{% static 'eiad/img/2.png' %}">
+<meta property="og:type" content="website">
+{% endblock %}
 
 {% block hero_section %}
 <section class="breadcrumb breadcrumb_bg">

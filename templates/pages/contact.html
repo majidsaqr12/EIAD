@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
+
+
+{% block seo %}
+<meta name="description" content="{% trans 'Contactez EIAD School dès aujourd\'hui pour en savoir plus sur nos programmes et opportunités. Nous sommes à votre disposition pour répondre à toutes vos questions.' %}">
+<meta name="keywords" content="{% trans 'Contact EIAD, EIAD School, contact information, programmes EIAD, école IA, marketing digital' %}">
+<meta property="og:title" content="{% trans 'Contactez EIAD School - Nous sommes à votre écoute' %}">
+<meta property="og:description" content="{% trans 'Contactez-nous pour toute question ou commentaire concernant nos programmes en IA et marketing digital. Nous serons ravis de vous aider.' %}">
+<meta property="og:image" content="{% static 'eiad/img/contact_us.jpg' %}">
+<meta property="og:type" content="website">
+{% endblock %}
 
 {% block content %}
 <h2 class="contact-title" style="text-align: center; margin-top: 100px;">{% trans "Dites-nous ce que vous en pensez !" %}</h2>

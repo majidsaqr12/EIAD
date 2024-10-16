@@ -2,6 +2,22 @@
 {% load i18n %}
 {% load static %}
 
+
+{% block seo %}
+<meta name="description" content="{{ post.meta_description|default:post.content|truncatewords:25 }}">
+<meta name="keywords" content="{{ post.meta_keywords }}">
+<meta property="og:title" content="{{ post.og_title|default:post.title }}">
+<meta property="og:description" content="{{ post.og_description|default:post.content|truncatewords:25 }}">
+{% if post.og_image %}
+<meta property="og:image" content="{{ post.og_image.url }}">
+{% else %}
+<meta property="og:image" content="{{ post.image.url }}">
+{% endif %}
+<meta property="og:type" content="{{ post.og_type }}">
+{% endblock %}
+
+
+
 {% block hero_section %}
 <section class="breadcrumb breadcrumb_bg">
     <div class="container">

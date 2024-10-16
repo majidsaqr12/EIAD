@@ -2,6 +2,15 @@
 {% load i18n %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="{% trans 'Explorez notre blog pour des articles sur l\'intelligence artificielle, le marketing digital, et plus encore. Apprenez des tendances du secteur et des conseils pratiques pour votre développement professionnel.' %}">
+<meta name="keywords" content="{% trans 'blog EIAD, intelligence artificielle, marketing digital, tendances technologiques, conseils professionnels' %}">
+<meta property="og:title" content="{% trans 'Blog de EIAD School - Articles sur l\'IA et le marketing digital' %}">
+<meta property="og:description" content="{% trans 'Lisez des articles sur l\'intelligence artificielle, le marketing digital, et d\'autres sujets clés pour vous aider à rester informé et à développer vos compétences.' %}">
+<meta property="og:image" content="{% static 'eiad/img/blog_thumbnail.jpg' %}">
+<meta property="og:type" content="website">
+{% endblock %}
+
 {% block hero_section %}
 <section class="breadcrumb breadcrumb_bg">
     <div class="container">

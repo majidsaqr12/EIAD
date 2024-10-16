@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Course, Category
 from .forms import RegistrationForm
@@ -7,13 +8,22 @@ from django.conf import settings
 def courses(request):
     categories = Category.objects.all()
     selected_category = request.GET.get('category')
-    
+
     if selected_category:
         all_courses = Course.objects.filter(category__name=selected_category)
     else:
         all_courses = Course.objects.all()
-        
-    return render(request, 'courses/course.html', {'categories': categories, 'courses': all_courses})
+
+    # Paginate the courses
+    paginator = Paginator(all_courses, 6)  # Show 6 courses per page
+    page_number = request.GET.get('page')  # Get the page number from the request
+    courses_page = paginator.get_page(page_number)  # Get the courses for the current page
+
+    return render(request, 'courses/course.html', {
+        'categories': categories,
+        'courses': courses_page,  # Pass the paginated courses to the template
+        'paginator': paginator,  # Pass the paginator to the template (if needed)
+    })
 
 def course_detail(request, course_id):
     course = get_object_or_404(Course, id=course_id)

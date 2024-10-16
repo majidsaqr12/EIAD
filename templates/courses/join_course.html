@@ -2,6 +2,16 @@
 {% load static %}
 {% load i18n %}
 
+
+{% block seo %}
+<meta name="description" content="{% trans 'Inscrivez-vous dès aujourd\'hui pour suivre nos cours innovants en intelligence artificielle, marketing digital, et bien plus encore. Rejoignez EIAD School et développez vos compétences.' %}">
+<meta name="keywords" content="{% trans 'inscription cours EIAD, rejoindre un cours, formation IA, marketing digital, apprentissage en ligne, développement professionnel' %}">
+<meta property="og:title" content="{% trans 'Inscrivez-vous aux cours de EIAD School - Développez vos compétences' %}">
+<meta property="og:description" content="{% trans 'Rejoignez nos programmes de formation en intelligence artificielle et marketing digital pour apprendre auprès des meilleurs experts du secteur. Inscrivez-vous dès maintenant.' %}">
+<meta property="og:image" content="{% static 'eiad/img/course_registration.jpg' %}">
+<meta property="og:type" content="website">
+{% endblock %}
+
 {% block header_section %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
 
@@ -129,15 +139,12 @@ header {
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
                     </li>
 
                     <!-- Get a Quote button (visible on large screens) -->
                     <li class="d-none d-md-block">
-                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Rejoignez EIAD" %}</a>
                     </li>
 
                     <!-- Language Switcher -->

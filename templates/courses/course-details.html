@@ -2,6 +2,20 @@
 {% load static %}
 {% load i18n %}
 
+{% block seo %}
+<meta name="description" content="{{ course.meta_description|default:course.description|truncatewords:25 }}">
+<meta name="keywords" content="{{ course.meta_keywords }}">
+<meta property="og:title" content="{{ course.og_title|default:course.title }}">
+<meta property="og:description" content="{{ course.og_description|default:course.description|truncatewords:25 }}">
+{% if course.og_image %}
+<meta property="og:image" content="{{ course.og_image.url }}">
+{% else %}
+<meta property="og:image" content="{{ course.image.url }}">
+{% endif %}
+<meta property="og:type" content="{{ course.og_type }}">
+{% endblock %}
+
+
 {% block header_section %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
 
@@ -129,15 +143,12 @@ header {
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
                     </li>
 
                     <!-- Get a Quote button (visible on large screens) -->
                     <li class="d-none d-md-block">
-                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Rejoignez EIAD" %}</a>
                     </li>
 
                     <!-- Language Switcher -->
@@ -184,6 +195,7 @@ header {
                     <a href="{% url 'register_course' course.id %}" class="btn_1 btn btn-primary">Inscrivez-vous maintenant</a>
                 </div>
             </div>
+
 
             <!-- Right content (Image and Stats) -->
             <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
@@ -242,9 +254,9 @@ header {
                         </ul>
                     </div>
                     <div class="course-price d-flex justify-content-between">
-                        <span class="course-price-current">{{ course.currency }}{{ course.price }}</span>
+                        <span class="course-price-current">${{ course.price }}</span>
                         {% if course.discount_price %}
-                        <span class="course-price-discount text-danger">{{ course.currency }}{{ course.discount_price }}</span>
+                        <span class="course-price-discount text-danger">${{ course.discount_price }}</span>
                         {% endif %}
                     </div>
                     <a href="{% url 'register_course' course.id %}" class="course-register-btn btn btn-primary w-100">Registre</a>

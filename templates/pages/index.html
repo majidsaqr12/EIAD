@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-
+{% block seo %}
+<meta name="description" content="{% trans 'Découvrez EIAD School, une institution d\'avant-garde spécialisée dans l\'enseignement de l\'Intelligence Artificielle et du marketing digital. Inscrivez-vous dès maintenant pour façonner votre avenir.' %}">
+<meta name="keywords" content="{% trans 'EIAD School, Intelligence Artificielle, marketing digital, formation en IA, formation en marketing, école AI, école marketing, éducation digitale' %}">
+<meta property="og:title" content="{% trans 'EIAD School - Façonnez votre avenir avec l\'IA et le marketing digital' %}">
+<meta property="og:description" content="{% trans 'Rejoignez EIAD School pour une éducation de qualité en Intelligence Artificielle et marketing digital. Devenez un expert dans ces domaines en pleine croissance.' %}">
+<meta property="og:image" content="{% static 'eiad/img/logo.jpg' %}">
+<meta property="og:type" content="website">
+{% endblock %}
 {% block header_section %}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
@@ -132,15 +139,12 @@ a {
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">{% trans "Rejoignez EIAD" %}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'archive' %}">{% trans "Blog" %}</a>
                     </li>
 
                     <!-- Get a Quote button (visible on large screens) -->
                     <li class="d-none d-md-block">
-                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Get a Quote" %}</a>
+                        <a class="btn_1" href="{% url 'contact' %}" style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">{% trans "Rejoignez EIAD" %}</a>
                     </li>
 
                     <!-- Language Switcher -->
@@ -274,25 +278,25 @@ a {
             <div class="col-lg-3 col-sm-6">
                 <div class="single_member_counter">
                     <span class="counter">1024</span>
-                    <h4>{% trans "All Teachers" %}</h4>
+                    <h4>{% trans "Tous les enseignants" %}</h4>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="single_member_counter">
                     <span class="counter">960</span>
-                    <h4>{% trans "All Students" %}</h4>
+                    <h4>{% trans "Tous les étudiants" %}</h4>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="single_member_counter">
                     <span class="counter">1020</span>
-                    <h4>{% trans "Online Students" %}</h4>
+                    <h4>{% trans "Étudiants en ligne" %}</h4>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="single_member_counter">
                     <span class="counter">820</span>
-                    <h4>{% trans "Offline Students" %}</h4>
+                    <h4>{% trans "Étudiants hors ligne" %}</h4>
                 </div>
             </div>
         </div>
