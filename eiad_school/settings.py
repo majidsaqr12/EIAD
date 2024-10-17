@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)lz@ke5h7s@y(maye@o20bp!zwxsl$pg_y3b2k4ll8gmvz7r$%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
@@ -83,10 +83,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
         #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': os.environ.get('DATABASE_PATH', BASE_DIR / 'db.sqlite3'),
+        'NAME': os.environ.get('DATABASE_PATH', BASE_DIR / 'db/db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
