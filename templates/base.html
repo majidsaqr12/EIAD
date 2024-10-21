@@ -158,17 +158,17 @@ a {
                             <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% get_current_language as LANGUAGE_CODE %}
                                 {% if LANGUAGE_CODE == 'fr' %}
-                                    <i class="flag-icon flag-icon-fr"></i> Français
+                                    <i class="flag-icon flag-icon-fr"></i>
                                 {% else %}
-                                    <i class="flag-icon flag-icon-gb"></i> English
+                                    <i class="flag-icon flag-icon-gb"></i>
                                 {% endif %}
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                                 <li><button class="dropdown-item" type="submit" name="language" value="fr">
-                                    <i class="flag-icon flag-icon-fr"></i> Français
+                                    <i class="flag-icon flag-icon-fr"></i>
                                 </button></li>
                                 <li><button class="dropdown-item" type="submit" name="language" value="en">
-                                    <i class="flag-icon flag-icon-gb"></i> English
+                                    <i class="flag-icon flag-icon-gb"></i>
                                 </button></li>
                             </ul>
                         </div>
@@ -217,13 +217,13 @@ a {
                         <a href="{% url 'index' %}">
                             <img style="width: 100px !important;height: auto;" src="{% static 'eiad/img/logo.jpg' %}" alt="{% trans 'logo' %}">
                         </a>
-                         <p>{% trans "Préparez-vous à Façonner L’avenir ! Découvrez votre potentiel en IA et en marketing : chez EIAD, nous formons les futurs talents de l’Intelligence Artificielle et du marketing digital. Nous préparons en amont les exigences de demain, afin de vous munir des compétences nécessaires pour façonner l’avenir et relever les défis d’un monde en changement !" %}</p>
+                         <p>{% trans "EIAD - École Internationale de l'Intelligence Artificielle et de la Digitalisation Spécialisée en intelligence artificielle et digitalisation, EIAD offre des formations innovantes et pratiques pour préparer les talents de demain. Située à Tétouan, notre école se distingue par une équipe de professionnels expérimentés et des cursus adaptés aux besoins du marché actuel." %}</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-4">
                     <div class="single-footer-widget footer_2">
                         <h4>{% trans "Bulletin" %}</h4>
-                        <p>{% trans "Recevez des conseils d'experts pour votre carrière scolaire chaque mois dans votre boîte de réception. C'est court et utile, nous promettons!" %}</p>
+                        <p>{% trans "Recevez chaque mois dans votre boîte mail des conseils d'eRecevez les actualités d'EIAD, l'École Internationale de l'Intelligence Artificielle et de la Digitalisation. Découvrez nos nouvelles formations, événements, réussites d’étudiants, et accédez à des articles exclusifs de notre blog dédié à l'IA et à la digitalisation. Abonnez-vous pour rester à jour !xperts pour votre parcours scolaire. C'est court et utile, c'est promis !" %}</p>
                         <form method="POST" action="{% url 'subscribe' %}">
                             {% csrf_token %}
                             <div class="form-group">
@@ -247,7 +247,7 @@ a {
                     <div class="single-footer-widget footer_2">
                         <h4>{% trans "Contactez-nous" %}</h4>
                         <div class="contact_info">
-                            <p><span>{% trans "Adresse" %}:</span> 873 boulevard des fars, Tétouan</p>
+                            <p><span>{% trans "Adresse" %}:</span>873, Av des FAR (près de l’ISTA route de Ceuta)</p>
                             <p><span>{% trans "Téléphone" %}:</span> <a href="tel:+212708759037">0708759037</a></p>
                             <p><span>{% trans "Email" %}:</span> <a href="mailto:formationharouni@gmail.com">formationharouni@gmail.com</a></p>
                         </div>

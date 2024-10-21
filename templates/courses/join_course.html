@@ -149,29 +149,29 @@ header {
 
                     <!-- Language Switcher -->
                     <li class="nav-item ml-3">
-    <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <div class="dropdown">
-            <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% if LANGUAGE_CODE == 'fr' %}
-                    <i class="flag-icon flag-icon-fr"></i> Français
-                {% else %}
-                    <i class="flag-icon flag-icon-gb"></i> English
-                {% endif %}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                <li><button class="dropdown-item" type="submit" name="language" value="fr">
-                    <i class="flag-icon flag-icon-fr"></i> Français
-                </button></li>
-                <li><button class="dropdown-item" type="submit" name="language" value="en">
-                    <i class="flag-icon flag-icon-gb"></i> English
-                </button></li>
-            </ul>
-        </div>
-    </form>
-</li>
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle lang-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% if LANGUAGE_CODE == 'fr' %}
+                                        <i class="flag-icon flag-icon-fr"></i>
+                                    {% else %}
+                                        <i class="flag-icon flag-icon-gb"></i>
+                                    {% endif %}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    <li><button class="dropdown-item" type="submit" name="language" value="fr">
+                                        <i class="flag-icon flag-icon-fr"></i>
+                                    </button></li>
+                                    <li><button class="dropdown-item" type="submit" name="language" value="en">
+                                        <i class="flag-icon flag-icon-gb"></i>
+                                    </button></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

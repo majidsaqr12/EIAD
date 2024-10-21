@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-16 17:09+0300\n"
+"POT-Creation-Date: 2024-10-21 08:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1267,103 +1267,115 @@ msgid ""
 "pleine croissance."
 msgstr ""
 
-#: templates/base.html:137 templates/base.html:219
-#: templates/courses/course-details.html:121 templates/courses/course.html:235
+#: templates/base.html:137 templates/base.html:218
+#: templates/courses/course-details.html:121 templates/courses/course.html:264
 #: templates/courses/join_course.html:117 templates/pages/index.html:117
 msgid "logo"
 msgstr ""
 
-#: templates/base.html:144 templates/base.html:194
+#: templates/base.html:144 templates/base.html:193
 #: templates/blogs/archives.html:23 templates/blogs/single-blog.html:30
-#: templates/courses/course-details.html:134 templates/courses/course.html:248
+#: templates/courses/course-details.html:134 templates/courses/course.html:277
 #: templates/courses/join_course.html:130 templates/pages/about.html:24
 #: templates/pages/index.html:130 templates/pages/our_campus.html:23
 msgid "Accueil"
 msgstr "Home"
 
 #: templates/base.html:145 templates/courses/course-details.html:137
-#: templates/courses/course.html:251 templates/courses/join_course.html:133
+#: templates/courses/course.html:280 templates/courses/join_course.html:133
 #: templates/pages/index.html:133
 msgid "A propos"
 msgstr "About"
 
 #: templates/base.html:146 templates/courses/course-details.html:140
-#: templates/courses/course.html:254 templates/courses/join_course.html:136
+#: templates/courses/course.html:283 templates/courses/join_course.html:136
 #: templates/pages/index.html:136
 msgid "Le programme"
 msgstr "The Program"
 
 #: templates/base.html:147 templates/courses/course-details.html:143
-#: templates/courses/course.html:257 templates/courses/join_course.html:139
+#: templates/courses/course.html:286 templates/courses/join_course.html:139
 #: templates/pages/index.html:139 templates/pages/our_campus.html:21
 #: templates/pages/our_campus.html:25
 msgid "Nos Campus"
 msgstr "Our Campuses"
 
-#: templates/base.html:148 templates/base.html:192 templates/base.html:196
-#: templates/courses/course-details.html:146 templates/courses/course.html:260
+#: templates/base.html:148 templates/blogs/single-blog.html:32
+#: templates/courses/course-details.html:146 templates/courses/course.html:289
 #: templates/courses/join_course.html:142 templates/pages/index.html:142
-msgid "Rejoignez EIAD"
-msgstr "Join EIAD"
-
-#: templates/base.html:149 templates/blogs/single-blog.html:32
-#: templates/courses/course-details.html:149 templates/courses/course.html:263
-#: templates/courses/join_course.html:145 templates/pages/index.html:145
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/base.html:151
-msgid "Obtenez un devis"
-msgstr "Get a Quote"
+#: templates/base.html:150 templates/base.html:191 templates/base.html:195
+#: templates/courses/course-details.html:151 templates/courses/course.html:294
+#: templates/courses/join_course.html:147 templates/pages/index.html:147
+msgid "Rejoignez EIAD"
+msgstr "Join EIAD"
 
-#: templates/base.html:221 templates/pages/index.html:193
+#: templates/base.html:220
 msgid ""
-"Préparez-vous à Façonner L’avenir ! Découvrez votre potentiel en IA et en "
-"marketing : chez EIAD, nous formons les futurs talents de l’Intelligence "
-"Artificielle et du marketing digital. Nous préparons en amont les exigences "
-"de demain, afin de vous munir des compétences nécessaires pour façonner "
-"l’avenir et relever les défis d’un monde en changement !"
+"EIAD - École Internationale de l'Intelligence Artificielle et de la "
+"Digitalisation Spécialisée en intelligence artificielle et digitalisation, "
+"EIAD offre des formations innovantes et pratiques pour préparer les talents "
+"de demain. Située à Tétouan, notre école se distingue par une équipe de "
+"professionnels expérimentés et des cursus adaptés aux besoins du marché "
+"actuel."
 msgstr ""
-"Get ready to Shape the Future! Discover your potential in AI and marketing: "
-"at EIAD, we train the future talents of Artificial Intelligence and digital "
-"marketing. We prepare ahead for tomorrow's demands, equipping you with the "
-"skills needed to shape the future and face the challenges of a changing "
-"world!"
+"EIAD - International School of Artificial Intelligence and Digitalization, "
+"specializing in artificial intelligence and digitalization. EIAD offers "
+"innovative and practical training to prepare the talents of tomorrow. "
+"Located in Tetouan, our school is distinguished by a team of experienced "
+"professionals and courses adapted to the current market needs."
 
-#: templates/base.html:226
+#: templates/base.html:225
 msgid "Bulletin"
 msgstr "Newsletter"
 
-#: templates/base.html:227
+#: templates/base.html:226
+#, fuzzy
+#| msgid ""
+#| "Recevez chaque mois dans votre boîte mail des conseils d'eRecevez les "
+#| "actualités d'EIAD, l'École Internationale de l'Intelligence Artificielle "
+#| "et de la Digitalisation. Découvrez nos nouvelles formations, événements, "
+#| "réussites d’étudiants, et accédez à des articles exclusifs de notre blog "
+#| "dédié à l'IA et à la digitalisation. Abonnez-vous pour rester à jour !"
 msgid ""
-"Recevez des conseils d'experts pour votre carrière scolaire chaque mois dans "
-"votre boîte de réception. C'est court et utile, nous promettons!"
+"Recevez chaque mois dans votre boîte mail des conseils d'eRecevez les "
+"actualités d'EIAD, l'École Internationale de l'Intelligence Artificielle et "
+"de la Digitalisation. Découvrez nos nouvelles formations, événements, "
+"réussites d’étudiants, et accédez à des articles exclusifs de notre blog "
+"dédié à l'IA et à la digitalisation. Abonnez-vous pour rester à jour !xperts "
+"pour votre parcours scolaire. C'est court et utile, c'est promis !"
 msgstr ""
-"Receive expert advice for your academic career every month in your inbox. "
-"It's short and helpful, we promise!"
+"Receive expert advice for your academic journey each month in your inbox. "
+"It's short and useful, we promise! Stay updated with news from EIAD, the "
+"International School of Artificial Intelligence and Digitalization. Discover "
+"our new courses, events, student successes, and get access to exclusive "
+"articles from our blog dedicated to AI and digitalization. Subscribe to stay "
+"up-to-date!"
 
-#: templates/base.html:232
+#: templates/base.html:231
 msgid "Entrez l\\"
-msgstr "Enter the\\"
+msgstr ""
 
-#: templates/base.html:249
+#: templates/base.html:248
 msgid "Contactez-nous"
 msgstr "Contact Us"
 
-#: templates/base.html:251
+#: templates/base.html:250
 msgid "Adresse"
 msgstr "Address"
 
-#: templates/base.html:252 templates/courses/join_course.html:216
-#: templates/pages/contact.html:30 templates/pages/contact.html:71
+#: templates/base.html:251 templates/courses/join_course.html:213
+#: templates/pages/contact.html:32 templates/pages/contact.html:73
 msgid "Téléphone"
 msgstr "Phone"
 
-#: templates/base.html:253
+#: templates/base.html:252
 msgid "Email"
 msgstr "Email"
 
-#: templates/base.html:266
+#: templates/base.html:265
 msgid "Tous droits réservés | EIAD"
 msgstr "All rights reserved | EIAD"
 
@@ -1389,7 +1401,7 @@ msgstr ""
 msgid "Notre blogs"
 msgstr "Our Blogs"
 
-#: templates/blogs/archives.html:25 templates/pages/index.html:365
+#: templates/blogs/archives.html:25 templates/pages/index.html:362
 msgid "Blogs"
 msgstr "Blogs"
 
@@ -1441,13 +1453,13 @@ msgstr "Leave a Comment"
 msgid "Écrire un commentaire"
 msgstr "Write a Comment"
 
-#: templates/blogs/single-blog.html:115 templates/courses/join_course.html:202
-#: templates/pages/contact.html:59
+#: templates/blogs/single-blog.html:115 templates/courses/join_course.html:199
+#: templates/pages/contact.html:61
 msgid "Nom"
 msgstr "Name"
 
-#: templates/blogs/single-blog.html:120 templates/courses/join_course.html:209
-#: templates/pages/contact.html:37 templates/pages/contact.html:65
+#: templates/blogs/single-blog.html:120 templates/courses/join_course.html:206
+#: templates/pages/contact.html:39 templates/pages/contact.html:67
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -1462,11 +1474,6 @@ msgstr "Related Articles"
 #: templates/blogs/single-blog.html:139
 msgid "article"
 msgstr "article"
-
-#: templates/courses/course-details.html:154 templates/courses/course.html:268
-#: templates/courses/join_course.html:150 templates/pages/index.html:150
-msgid "Get a Quote"
-msgstr "Get a Quote"
 
 #: templates/courses/course.html:6
 msgid "Découvrez les cours proposés par EIAD School, couvrant l\\"
@@ -1486,13 +1493,13 @@ msgstr ""
 msgid "Explorez notre sélection de cours innovants dans les domaines de l\\"
 msgstr ""
 
-#: templates/courses/course.html:310
+#: templates/courses/course.html:335
 msgid ""
 "Apprenez une nouvelle compétence tous les jours, à tout moment et en tout "
 "lieu."
 msgstr "Learn a new skill every day, anytime, anywhere."
 
-#: templates/courses/course.html:312
+#: templates/courses/course.html:337
 msgid ""
 "Des cours couvrant tous les domaines technologiques vous permettent "
 "d'apprendre et d'explorer de nouvelles opportunités. Apprenez auprès "
@@ -1501,63 +1508,62 @@ msgstr ""
 "Courses covering all technological fields allow you to learn and explore new "
 "opportunities. Learn from industry experts and land your dream job."
 
-#: templates/courses/course.html:318
+#: templates/courses/course.html:343
 msgid "Cours au choix"
 msgstr "Elective courses"
 
-#: templates/courses/course.html:322
+#: templates/courses/course.html:347
 msgid "Étudiants formés"
 msgstr "Trained students"
 
-#: templates/courses/course.html:326
+#: templates/courses/course.html:351
 msgid "Formateurs professionnels"
 msgstr "Staff Training"
 
-#: templates/courses/course.html:333 templates/pages/about.html:77
-#: templates/pages/index.html:203
+#: templates/courses/course.html:358 templates/pages/index.html:200
 msgid "our values pic"
 msgstr "our values pic"
 
-#: templates/courses/course.html:344
+#: templates/courses/course.html:369
 msgid "Cours"
 msgstr "Courses"
 
-#: templates/courses/course.html:348
+#: templates/courses/course.html:373
 msgid "All programs"
 msgstr "All Programs"
 
-#: templates/courses/course.html:396
+#: templates/courses/course.html:412
 msgid "Registration"
 msgstr "Registration"
 
-#: templates/courses/course.html:414
+#: templates/courses/course.html:453
 msgid "Entraînement"
 msgstr "Training"
 
-#: templates/courses/course.html:417
+#: templates/courses/course.html:456
 msgid "Training"
 msgstr "Training"
 
-#: templates/courses/course.html:421
+#: templates/courses/course.html:460
 msgid "Formation du personnel"
 msgstr "Staff Training"
 
-#: templates/courses/course.html:423 templates/courses/course.html:427
-#: templates/courses/course.html:431
+#: templates/courses/course.html:462 templates/courses/course.html:466
+#: templates/courses/course.html:470
 msgid "Check Icon"
 msgstr "Check Icon"
 
-#: templates/courses/course.html:424
+#: templates/courses/course.html:463
 msgid "intégrer l'IA dans l'enseignement pour un apprentissage personnalisé"
 msgstr "integrate AI into education for personalized learning"
 
-#: templates/courses/course.html:428
+#: templates/courses/course.html:467
 msgid ""
 "utiliser l'IA pour une prise de décision basée sur les données afin "
 "d'améliorer les résultats des étudiants"
 msgstr "use AI for data-driven decision making to improve student outcomes"
 
-#: templates/courses/course.html:432
+#: templates/courses/course.html:471
 msgid ""
 "exploiter les outils administratifs basés sur l'IA pour améliorer "
 "l'efficacité des opérations quotidiennes."
@@ -1588,36 +1594,36 @@ msgid ""
 "Inscrivez-vous dès maintenant."
 msgstr ""
 
-#: templates/courses/join_course.html:194
+#: templates/courses/join_course.html:191
 msgid "Inscrivez-vous pour"
 msgstr "Sign up for"
 
-#: templates/courses/join_course.html:203 templates/pages/contact.html:60
+#: templates/courses/join_course.html:200 templates/pages/contact.html:62
 msgid "Brian Clark"
 msgstr "Brian Clark"
 
-#: templates/courses/join_course.html:210 templates/pages/contact.html:66
+#: templates/courses/join_course.html:207 templates/pages/contact.html:68
 msgid "example@youremail.com"
 msgstr "example@youremail.com"
 
-#: templates/courses/join_course.html:217
-#: templates/courses/join_course.html:231 templates/pages/contact.html:72
+#: templates/courses/join_course.html:214
+#: templates/courses/join_course.html:228 templates/pages/contact.html:74
 msgid "(123)456-789"
 msgstr "(123)456-789"
 
-#: templates/courses/join_course.html:223
+#: templates/courses/join_course.html:220
 msgid "Âge"
 msgstr "Age"
 
-#: templates/courses/join_course.html:224
+#: templates/courses/join_course.html:221
 msgid "25"
 msgstr "25"
 
-#: templates/courses/join_course.html:230
+#: templates/courses/join_course.html:227
 msgid "Numéro WhatsApp"
 msgstr "WhatsApp Number"
 
-#: templates/courses/join_course.html:237
+#: templates/courses/join_course.html:234
 msgid "Registre"
 msgstr "Register"
 
@@ -1642,19 +1648,15 @@ msgid "Apprenez-en davantage sur la mission et les valeurs d\\"
 msgstr ""
 
 #: templates/pages/about.html:22 templates/pages/about.html:26
-#: templates/pages/index.html:233
+#: templates/pages/index.html:230
 msgid "À propos de nous"
 msgstr "About Us"
 
-#: templates/pages/about.html:48
-msgid "about img"
-msgstr "about img"
-
-#: templates/pages/about.html:53
+#: templates/pages/about.html:87 templates/pages/about.html:287
 msgid "Notre Mission"
 msgstr "Our Mission"
 
-#: templates/pages/about.html:55
+#: templates/pages/about.html:89
 msgid ""
 "Notre mission est de former une nouvelle génération de talents au Maroc, "
 "prêts à intégrer immédiatement le marché du travail. Nous nous distinguons "
@@ -1672,11 +1674,11 @@ msgstr ""
 "Tangier, we prepare our students to become key players in technological "
 "innovation."
 
-#: templates/pages/about.html:69
+#: templates/pages/about.html:98
 msgid "Nos Valeurs"
 msgstr "Our Values"
 
-#: templates/pages/about.html:71
+#: templates/pages/about.html:100
 msgid ""
 "Nous nous engageons à cultiver l'excellence professionnelle, l'innovation "
 "continue, l'inclusion sociale, et une collaboration active et dynamique au "
@@ -1689,74 +1691,176 @@ msgstr ""
 "Our approach is market-driven, providing concrete solutions that prepare our "
 "students to excel in a constantly evolving technological environment."
 
-#: templates/pages/about.html:91
+#: templates/pages/about.html:113
 msgid "Notre Équipe"
 msgstr "Our Team"
 
-#: templates/pages/about.html:92
-msgid ""
-"Rencontrez notre équipe de coachs, tuteurs et professionnels d'expérience "
-"qui vous guidera tout au long de votre parcours d'apprentissage."
-msgstr ""
-"Meet our team of experienced coaches, tutors, and professionals who will "
-"guide you throughout your learning journey."
+#: templates/pages/about.html:114
+msgid "Rencontrez notre équipe de coachs, tuteurs et professionnels d'expérience qui vous guidera tout au long de votre parcours d'apprentissage."
+msgstr "Meet our team of coaches, tutors, and experienced professionals who will guide you throughout your learning journey."
 
-#: templates/pages/about.html:106
-msgid "ALi Ibrahim"
-msgstr "Ali Ibrahim"
 
-#: templates/pages/about.html:107 templates/pages/about.html:114
-#: templates/pages/about.html:121 templates/pages/about.html:128
-msgid ""
-"Set have great you male grasses yielding yielding first their to called deep "
-"abundantly Set have great you male."
+#: templates/pages/about.html:122
+msgid "Bennani Nora"
 msgstr ""
 
-#: templates/pages/about.html:113
-msgid "Omar Samir"
-msgstr "Omar Samir"
+#: templates/pages/about.html:123
+msgid "Professeure de perfectionnement en français"
+msgstr "French Improvement Teacher"
 
-#: templates/pages/about.html:120
-msgid "Noah Ali"
-msgstr "Noah Ali"
+#: templates/pages/about.html:124
+msgid "Nora aide les étudiants à maîtriser la langue pour une communication écrite et orale professionnelle."
+msgstr "Nora helps students master the language for professional written and oral communication."
 
-#: templates/pages/about.html:127
-msgid "Mostafa Ali"
-msgstr "Mostafa Ali"
 
-#: templates/pages/contact.html:5
+#: templates/pages/about.html:131
+msgid "Laaribi Othmane"
+msgstr ""
+
+#: templates/pages/about.html:132
+msgid "Expert en communication"
+msgstr "Expert in Communication"
+
+#: templates/pages/about.html:133
+msgid "Othmane enseigne les techniques de présentation et les stratégies de communication pour réussir dans le monde professionnel."
+msgstr "Othmane teaches presentation techniques and communication strategies to succeed in the professional world."
+
+
+#: templates/pages/about.html:140
+msgid "El balgiti Abdessamad"
+msgstr ""
+
+#: templates/pages/about.html:141
+msgid "Spécialiste en anglais technique"
+msgstr "Technical English Specialist"
+
+
+#: templates/pages/about.html:142
+msgid "Abdessamad forme les étudiants à utiliser l’anglais dans des contextes professionnels et techniques spécifiques."
+msgstr "Abdessamad trains students to use English in specific professional and technical contexts."
+
+
+#: templates/pages/about.html:149
+msgid "Skalli Housseini Anouar"
+msgstr ""
+
+#: templates/pages/about.html:150
+msgid "Professeur d'analyses des affaires"
+msgstr "Business Analysis Teacher"
+
+
+#: templates/pages/about.html:151
+msgid "John aide les étudiants à développer leurs compétences en communication anglaise pour les environnements techniques et commerciaux."
+msgstr "John helps students develop their English communication skills for technical and business environments."
+
+
+#: templates/pages/about.html:162
+msgid "Daya Eddine Ibrahim"
+msgstr ""
+
+#: templates/pages/about.html:163
+msgid "Experte en intelligence artificielle"
+msgstr "Expert in Artificial Intelligence"
+
+#: templates/pages/about.html:164
+msgid "Daya Eddine enseigne la data science et la programmation en Python avec une approche axée sur la pratique."
+msgstr "Daya Eddine teaches data science and Python programming with a hands-on approach."
+
+
+#: templates/pages/about.html:171
+msgid "Mehdi Benali"
+msgstr ""
+
+#: templates/pages/about.html:172
+msgid "Spécialiste en marketing digital et IA"
+msgstr "Specialist in Digital Marketing and AI"
+
+
+#: templates/pages/about.html:173
+msgid "Mehdi forme les étudiants à exploiter les technologies pour optimiser les stratégies de communication en ligne."
+msgstr "Mehdi trains students to leverage technologies to optimize online communication strategies."
+
+
+#: templates/pages/about.html:180
+msgid "Amina El Khouli"
+msgstr ""
+
+#: templates/pages/about.html:181
+msgid "Développeuse web et ingénieure IA"
+msgstr "Web Developer and AI Engineer"
+
+#: templates/pages/about.html:182
+msgid "Amina enseigne la création d'applications web et l'intégration d'algorithmes d'automatisation."
+msgstr "Amina teaches web application development and the integration of automation algorithms."
+
+
+#: templates/pages/about.html:291
+msgid "Nos Projets"
+msgstr "Our Projects"
+
+#: templates/pages/about.html:293 templates/pages/about.html:304
+msgid "Nous avons déjà contribué au développement de projets innovants, participé à des événements professionnels importants et forgé des partenariats stratégiques avec les entreprises du secteur."
+msgstr "We have already contributed to the development of innovative projects, participated in important professional events, and forged strategic partnerships with industry companies."
+
+
+#: templates/pages/about.html:302
+msgid "Un impact concret"
+msgstr "A Tangible Impact"
+
+
+#: templates/pages/about.html:312
+#, fuzzy
+#| msgid "Google Logo"
+msgid "Google Cloud"
+msgstr "Google Logo"
+
+#: templates/pages/about.html:315
+msgid "AWS"
+msgstr "AWS"
+
+#: templates/pages/about.html:318
+msgid "OVHcloud"
+msgstr "OVHcloud"
+
+#: templates/pages/about.html:321
+#, fuzzy
+#| msgid "Oracle Logo"
+msgid "Oracle"
+msgstr "Oracle Logo"
+
+#: templates/pages/contact.html:7
 msgid "Contactez EIAD School dès aujourd\\"
 msgstr ""
 
-#: templates/pages/contact.html:6
+#: templates/pages/contact.html:8
 msgid ""
 "Contact EIAD, EIAD School, contact information, programmes EIAD, école IA, "
 "marketing digital"
 msgstr ""
 
-#: templates/pages/contact.html:7
+#: templates/pages/contact.html:9
 msgid "Contactez EIAD School - Nous sommes à votre écoute"
 msgstr ""
 
-#: templates/pages/contact.html:8
+#: templates/pages/contact.html:10
 msgid ""
 "Contactez-nous pour toute question ou commentaire concernant nos programmes "
 "en IA et marketing digital. Nous serons ravis de vous aider."
 msgstr ""
 
-#: templates/pages/contact.html:14
+#: templates/pages/contact.html:16
 msgid "Dites-nous ce que vous en pensez !"
 msgstr "Tell us what you think!"
 
-#: templates/pages/contact.html:15
+#: templates/pages/contact.html:17
 msgid "Contactez-nous découvrez nos programmes !"
 msgstr "Contact us and discover our programs!"
 
-#: templates/pages/contact.html:23
+#: templates/pages/contact.html:25
 msgid "Vous souhaitez nous contacter directement ?"
 msgstr "Do you want to contact us directly?"
 
-#: templates/pages/contact.html:24
+#: templates/pages/contact.html:26
 msgid ""
 "Si vous avez des questions, des commentaires ou si vous avez besoin d'aide "
 "supplémentaire, nous vous encourageons à nous contacter"
@@ -1764,67 +1868,77 @@ msgstr ""
 "If you have any questions, comments, or need further assistance, we "
 "encourage you to contact us."
 
-#: templates/pages/contact.html:41
+#: templates/pages/contact.html:43
 msgid "Suivez-nous sur les réseaux sociaux"
 msgstr "Follow us on social media"
 
-#: templates/pages/contact.html:77
+#: templates/pages/contact.html:79
 msgid "Entreprise"
 msgstr "Company"
 
-#: templates/pages/contact.html:78
+#: templates/pages/contact.html:80
 msgid "BRIX Agency"
 msgstr "BRIX Agency"
 
-#: templates/pages/contact.html:83
+#: templates/pages/contact.html:85
 msgid "Message"
 msgstr "Message"
 
-#: templates/pages/contact.html:84
+#: templates/pages/contact.html:86
 msgid "Enter Message"
 msgstr "Enter Message"
 
-#: templates/pages/contact.html:89
+#: templates/pages/contact.html:91
 msgid "Envoyer un message"
 msgstr "Send a message"
 
-#: templates/pages/index.html:191
+#: templates/pages/index.html:188
 msgid "Tout le monde aspire à apprendre"
 msgstr "Everyone aspires to learn"
 
-#: templates/pages/index.html:192
+#: templates/pages/index.html:189
 msgid "À EIAD"
 msgstr "At EIAD"
 
-#: templates/pages/index.html:195
+#: templates/pages/index.html:190
+msgid ""
+"Préparez-vous à Façonner L’avenir ! Découvrez votre potentiel en IA et en "
+"marketing : chez EIAD, nous formons les futurs talents de l’Intelligence "
+"Artificielle et du marketing digital. Nous préparons en amont les exigences "
+"de demain, afin de vous munir des compétences nécessaires pour façonner "
+"l’avenir et relever les défis d’un monde en changement !"
+msgstr ""
+"Get ready to Shape the Future! Discover your potential in AI and marketing: "
+"at EIAD, we train the future talents of Artificial Intelligence and digital "
+"marketing. We prepare ahead for tomorrow's demands, equipping you with the "
+"skills needed to shape the future and face the challenges of a changing "
+"world!"
+
+#: templates/pages/index.html:192
 msgid "Voir les cours"
 msgstr "View Courses"
 
-#: templates/pages/index.html:196
+#: templates/pages/index.html:193
 msgid "Commencer"
 msgstr "Get Started"
 
-#: templates/pages/index.html:211
+#: templates/pages/index.html:208
 msgid "Google Logo"
 msgstr "Google Logo"
 
-#: templates/pages/index.html:214
+#: templates/pages/index.html:211
 msgid "Oracle Logo"
 msgstr "Oracle Logo"
 
-#: templates/pages/index.html:217
-msgid "AWS Logo"
-msgstr "AWS Logo"
-
-#: templates/pages/index.html:229
+#: templates/pages/index.html:226
 msgid "About Us Image"
 msgstr "About Us Image"
 
-#: templates/pages/index.html:234
+#: templates/pages/index.html:231
 msgid "Pourquoi choisir EIAD ?"
 msgstr "Why Choose EIAD?"
 
-#: templates/pages/index.html:235
+#: templates/pages/index.html:232
 msgid ""
 "Parce que vous bénéficierez d’une pédagogie innovante reposant sur le "
 "concept du “learning by doing”, vous profiterez d’un corps de formateurs "
@@ -1836,15 +1950,15 @@ msgstr ""
 "to your success, modern learning equipment, and a list of high-performing "
 "partners!"
 
-#: templates/pages/index.html:236 templates/pages/index.html:250
+#: templates/pages/index.html:233 templates/pages/index.html:247
 msgid "En savoir plus"
 msgstr "Learn More"
 
-#: templates/pages/index.html:248
+#: templates/pages/index.html:245
 msgid "Deux spécialités stratégiques"
 msgstr "Two Strategic Specialties"
 
-#: templates/pages/index.html:249
+#: templates/pages/index.html:246
 msgid ""
 "Avec notre spécialité Technicien Spécialisé en IA et aussi Technicien "
 "Spécialisé en Marketing & IA, pour suivre vos rêves !"
@@ -1852,79 +1966,79 @@ msgstr ""
 "With our specialty in AI Technician and also Marketing & AI Technician, to "
 "pursue your dreams!"
 
-#: templates/pages/index.html:260
+#: templates/pages/index.html:257
 msgid "Technicien Spécialisé en IA"
 msgstr "Specialized AI Technician"
 
-#: templates/pages/index.html:268
+#: templates/pages/index.html:265
 msgid "Technicien Spécialisé en Marketing & IA"
 msgstr "Specialized Marketing & AI Technician"
 
-#: templates/pages/index.html:284
+#: templates/pages/index.html:281
 msgid "Tous les enseignants"
 msgstr "All Teachers."
 
-#: templates/pages/index.html:290
+#: templates/pages/index.html:287
 msgid "Tous les étudiants"
 msgstr "All Students."
 
-#: templates/pages/index.html:296
+#: templates/pages/index.html:293
 msgid "Étudiants en ligne"
 msgstr "Online Students."
 
-#: templates/pages/index.html:302
+#: templates/pages/index.html:299
 msgid "Étudiants hors ligne"
 msgstr "Offline Students."
 
-#: templates/pages/index.html:313
+#: templates/pages/index.html:310
 msgid "Témoignage étudiant"
 msgstr "Student Testimonial"
 
-#: templates/pages/index.html:321
+#: templates/pages/index.html:318
 msgid "Testimonial Image 1"
 msgstr "Testimonial Image 1"
 
-#: templates/pages/index.html:325
+#: templates/pages/index.html:322
 msgid "Behold place was a multiply creeping."
 msgstr "Behold, place was a multiply creeping."
 
-#: templates/pages/index.html:327
+#: templates/pages/index.html:324
 msgid "Sr. Web Designer"
 msgstr "Sr. Web Designer"
 
-#: templates/pages/index.html:333
+#: templates/pages/index.html:330
 msgid "Testimonial Image 2"
 msgstr "Testimonial Image 2"
 
-#: templates/pages/index.html:337
+#: templates/pages/index.html:334
 msgid "This is another testimonial text for a different student experience."
 msgstr "This is another testimonial text for a different student experience."
 
-#: templates/pages/index.html:339
+#: templates/pages/index.html:336
 msgid "Graphic Designer"
 msgstr "Graphic Designer"
 
-#: templates/pages/index.html:345
+#: templates/pages/index.html:342
 msgid "Testimonial Image 3"
 msgstr "Testimonial Image 3"
 
-#: templates/pages/index.html:349
+#: templates/pages/index.html:346
 msgid "Another great experience shared by a student about their journey."
 msgstr "Another great experience shared by a student about their journey."
 
-#: templates/pages/index.html:351
+#: templates/pages/index.html:348
 msgid "Software Engineer"
 msgstr "Software Engineer"
 
-#: templates/pages/index.html:374
+#: templates/pages/index.html:371
 msgid "blog"
 msgstr "blog"
 
-#: templates/pages/index.html:383
+#: templates/pages/index.html:380
 msgid "Comments"
 msgstr "Comments"
 
-#: templates/pages/index.html:384
+#: templates/pages/index.html:381
 msgid "Like"
 msgstr "Like"
 
@@ -2022,26 +2136,5 @@ msgstr ""
 "and digital marketing sectors, creating exciting job opportunities and "
 "career prospects."
 
-#~ msgid "Mais quand elle a tiré vraiment chambre elle"
-#~ msgstr "But when she really pulled the room herself"
-
-#~ msgid "+100 students"
-#~ msgstr "+100 students"
-
-#~ msgid "Français"
-#~ msgstr "French"
-
-#~ msgid "English"
-#~ msgstr "English"
-
-#~ msgid "All Teachers"
-#~ msgstr "All Teachers"
-
-#~ msgid "All Students"
-#~ msgstr "All Students"
-
-#~ msgid "Online Students"
-#~ msgstr "Online Students"
-
-#~ msgid "Offline Students"
-#~ msgstr "Offline Students"
+#~ msgid "Entrez l'adresse email"
+#~ msgstr "Enter your email address"
