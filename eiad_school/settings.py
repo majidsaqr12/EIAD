@@ -12,14 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)lz@ke5h7s@y(maye@o20bp!zwxsl$pg_y3b2k4ll8gmvz7r$%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
-ALLOWED_HOSTS = ['*']
-
-CSRF_TRUSTED_ORIGINS = ['https://www.eiad.ma']
 
 HANDLER404 = 'pages.views.custom_404'
 
@@ -39,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'pages',
     'courses',
+    'programs',
     'blogs',
 ]
 
@@ -80,12 +76,11 @@ WSGI_APPLICATION = 'eiad_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': os.environ.get('DATABASE_PATH', BASE_DIR / 'db/db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -137,15 +132,15 @@ LOCALE_PATHS = [
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 
-if DEBUG:
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# if DEBUG:
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'eiad_school/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'eiad_school/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

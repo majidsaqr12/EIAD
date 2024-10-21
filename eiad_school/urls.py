@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('courses/', include('courses.urls')),
+    path('programs/', include('programs.urls')),
     path('blogs/', include('blogs.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),

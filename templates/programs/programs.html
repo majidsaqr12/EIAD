@@ -3,18 +3,13 @@
 {% load i18n %}
 
 {% block seo %}
-<meta name="description" content="{{ course.meta_description|default:course.description|truncatewords:25 }}">
-<meta name="keywords" content="{{ course.meta_keywords }}">
-<meta property="og:title" content="{{ course.og_title|default:course.title }}">
-<meta property="og:description" content="{{ course.og_description|default:course.description|truncatewords:25 }}">
-{% if course.og_image %}
-<meta property="og:image" content="{{ course.og_image.url }}">
-{% else %}
-<meta property="og:image" content="{{ course.image.url }}">
-{% endif %}
-<meta property="og:type" content="{{ course.og_type }}">
+<meta name="description" content="{% trans 'Découvrez les cours proposés par EIAD School, couvrant l\'IA, le marketing digital, et plus encore. Apprenez auprès des experts du secteur et développez des compétences pour réussir dans votre carrière.' %}">
+<meta name="keywords" content="{% trans 'cours EIAD, intelligence artificielle, marketing digital, formation en IA, programmes d\'éducation, formation technologique, développement professionnel' %}">
+<meta property="og:title" content="{% trans 'Cours à EIAD School - Apprenez l\'IA, le marketing digital, et plus' %}">
+<meta property="og:description" content="{% trans 'Explorez notre sélection de cours innovants dans les domaines de l\'intelligence artificielle, du marketing digital, et bien plus. Apprenez à votre rythme avec EIAD.' %}">
+<meta property="og:image" content="{% static 'eiad/img/about.png' %}">
+<meta property="og:type" content="website">
 {% endblock %}
-
 
 {% block header_section %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
@@ -72,6 +67,125 @@ header {
         margin-left: 20px; /* Space between the "Get a Quote" button and the language dropdown */
     }
 }
+/* Section styling */
+.skills-section {
+    background-color: #fff;
+    padding: 60px 0;
+}
+
+.section-heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: start;
+}
+
+.stat-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00a2ff;
+}
+
+.stat-item p {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+/* Right image with decorations */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.main-image {
+    border-radius: 50%;
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+}
+
+.decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle.blue {
+    width: 80px;
+    height: 80px;
+    background-color: #00a2ff;
+    top: 30%;
+    left: -10%;
+}
+
+.circle.light-blue {
+    width: 120px;
+    height: 120px;
+    background-color: #e0f7ff;
+    top: 60%;
+    right: -10%;
+}
+
+.trophy-icon {
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+}
+
+.trophy-icon img {
+    width: 60px;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .stat-item {
+        margin-bottom: 15px;
+    }
+
+    .main-image {
+        max-width: 250px;
+    }
+
+    .circle.blue {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circle.light-blue {
+        width: 90px;
+        height: 90px;
+    }
+
+    .trophy-icon img {
+        width: 50px;
+    }
+}
 /* Language Switcher Styles */
 .lang-switcher {
     border-radius: 50px;
@@ -112,6 +226,30 @@ header {
     color: #0056b3;
 }
 
+.section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #2A3E52;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+
+.img-fluid {
+    border-radius: 8px;
+    max-height: 300px; /* Optional: set a max-height for consistent image display */
+}
+
+@media (max-width: 768px) {
+    /* Stack columns on smaller screens */
+    .row {
+        flex-direction: column;
+    }
+}
+
 </style>
 <header>
     <nav class="navbar navbar-expand-md navbar-light">
@@ -136,8 +274,12 @@ header {
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'programs' %}">{% trans "Spécialisations" %}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'programs' %}">{% trans "Spécialisations" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
@@ -183,104 +325,54 @@ header {
 {% endblock %}
 
 {% block hero_section %}
-<section class="hero-section py-5">
+<section class="skills-section py-5">
     <div class="container">
         <div class="row align-items-center">
-            <!-- Left content -->
-            <div class="col-md-6 text-md-left text-center">
-                <h1>{{ course.title }}</h1>
-                <p>{{ course.description|truncatewords:30 }}</p>
-                <div class="cta-buttons mt-4">
-                    <a href="{% url 'register_course' course.id %}" class="btn_1 btn btn-primary">Inscrivez-vous maintenant</a>
-                </div>
+            <div class="col-md-6">
+                <h2 class="section-heading">{% trans "Une Formation Pratique et Immersive" %}</h2>
+                <p class="section-heading">{% trans "es cours interactifs et flexibles" %}</p>
+                <p class="section-description">
+                    {% trans "Conçus pour vous permettre de concilier votre apprentissage avec vos autres engagements, nos  cours sont accessibles en ligne et sur le campus." %}
+                </p>
             </div>
-
-
-            <!-- Right content (Image and Stats) -->
             <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
-                {% if course.image %}
-                    <img src="{{ course.image.url }}" class="course-card-img" alt="{{ course.title }}">
-                {% else %}
-                    <img src="{% static 'path/to/default-image.jpg' %}" class="course-card-img" alt="{{ course.title }}">
-                {% endif %}
+                <img src="{% static 'eiad/img/courses.jpg' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
             </div>
         </div>
     </div>
 </section>
+
 {% endblock %}
 
+
 {% block content %}
-<section class="course_details_area section_padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-12 course_details_left">
-                <div class="main_image">
-                    {% if course.image %}
-                        <img src="{{ course.image.url }}" class="course-card-img" alt="{{ course.title }}">
-                    {% else %}
-                        <img src="{% static 'path/to/default-image.jpg' %}" class="course-card-img" alt="{{ course.title }}">
-                    {% endif %}
-                </div>
-                <div class="content_wrapper">
-                    <h4 class="title_top">À propos du cours</h4>
-                    <div class="content text-dark">
-                        <p>{{ course.description }}</p>
-                    </div>
 
-                    <!-- Dynamic Course Outline Section -->
-                    <h4 class="title">Plan du cours</h4>
-                    <div class="content bg-light p-3">
-                        <ul class="course_list font-weight-bold">
-                            {% for outline_item in course.course_outline.splitlines %}
-                                <li class="course-item d-flex justify-content-between align-items-center">
-                                    <p class="text-dark">{{ outline_item }}</p>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>       
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-12 right-contents">
-                <div class="course-sidebar">
-                    <h3 class="course-sidebar-title">Ce cours comprend :</h3>
-                    <div class="course-sidebar-list">
-                        <ul class="course-sidebar-item-list">
-                            <!-- Dynamically load "this course includes" list -->
-                            {% for include_item in course.includes.splitlines %}
-                                <li class="course-sidebar-item">{{ include_item }}</li>
-                            {% endfor %}
-                        </ul>
+<div class="container py-5">
+    <div class="row">
+        {% for program in programs %}
+            <div class="row mb-5 mt-5">
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h2 class="section-title">{{ program.title }}</h2>
+                        <p class="section-description">{{ program.description }}</p>
                     </div>
-                    <div class="course-price d-flex justify-content-between">
-                        <span class="course-price-current">${{ course.price }}</span>
-                        {% if course.discount_price %}
-                        <span class="course-price-discount text-danger">${{ course.discount_price }}</span>
-                        {% endif %}
+                    <div class="col-md-6">
+                        <img src="{{ program.image.url }}" class="img-fluid" alt="{{ program.title }}">
                     </div>
-                    <a href="{% url 'register_course' course.id %}" class="course-register-btn btn btn-primary w-100">Registre</a>
-                </div>
-                <a href="#" class="course-promo-code-btn btn btn-secondary w-100 mt-2">Code promotionnel</a>
+                {% else %}
+                    <div class="col-md-6">
+                        <img src="{{ program.image.url }}" class="img-fluid" alt="{{ program.title }}">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h2 class="section-title">{{ program.title }}</h2>
+                        <p class="section-description">{{ program.description }}</p>
+                    </div>
+                {% endif %}
             </div>
-        </div>
+        {% endfor %}
     </div>
-</section>
+</div>
 
-<!-- Scripts -->
-<script src="{% static 'eiad/js/jquery-1.12.1.min.js' %}"></script>
-<script src="{% static 'eiad/js/bootstrap.min.js' %}"></script>
-<script>
-    function toggleDetails(element) {
-        const details = element.parentElement.nextElementSibling;
-        if (details.style.display === "none" || details.style.display === "") {
-            details.style.display = "block";
-            element.innerHTML = '&#x2190;';
-        } else {
-            details.style.display = "none";
-            element.innerHTML = '&#x2192;';
-        }
-    }
-</script>
 
 <!-- popper js -->
 <script src="eiad/js/popper.min.js"></script>

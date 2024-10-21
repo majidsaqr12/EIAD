@@ -279,9 +279,8 @@ header {
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'programs' %}">{% trans "Spécialisations" %}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
@@ -355,7 +354,7 @@ header {
 
             <!-- Right Column (Image) -->
             <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
-                <img src="{% static 'eiad/img/about.png' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
+                <img src="{% static 'eiad/img/courses.jpg' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
             </div>
         </div>
     </div>
