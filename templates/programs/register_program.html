@@ -2,12 +2,13 @@
 {% load static %}
 {% load i18n %}
 
+
 {% block seo %}
-<meta name="description" content="{% trans 'Découvrez les cours proposés par EIAD School, couvrant l\'IA, le marketing digital, et plus encore. Apprenez auprès des experts du secteur et développez des compétences pour réussir dans votre carrière.' %}">
-<meta name="keywords" content="{% trans 'cours EIAD, intelligence artificielle, marketing digital, formation en IA, programmes d\'éducation, formation technologique, développement professionnel' %}">
-<meta property="og:title" content="{% trans 'Cours à EIAD School - Apprenez l\'IA, le marketing digital, et plus' %}">
-<meta property="og:description" content="{% trans 'Explorez notre sélection de cours innovants dans les domaines de l\'intelligence artificielle, du marketing digital, et bien plus. Apprenez à votre rythme avec EIAD.' %}">
-<meta property="og:image" content="{% static 'eiad/img/about.png' %}">
+<meta name="description" content="{% trans 'Inscrivez-vous dès aujourd\'hui pour suivre nos cours innovants en intelligence artificielle, marketing digital, et bien plus encore. Rejoignez EIAD School et développez vos compétences.' %}">
+<meta name="keywords" content="{% trans 'inscription cours EIAD, rejoindre un cours, formation IA, marketing digital, apprentissage en ligne, développement professionnel' %}">
+<meta property="og:title" content="{% trans 'Inscrivez-vous aux cours de EIAD School - Développez vos compétences' %}">
+<meta property="og:description" content="{% trans 'Rejoignez nos programmes de formation en intelligence artificielle et marketing digital pour apprendre auprès des meilleurs experts du secteur. Inscrivez-vous dès maintenant.' %}">
+<meta property="og:image" content="{% static 'eiad/img/course_registration.jpg' %}">
 <meta property="og:type" content="website">
 {% endblock %}
 
@@ -67,125 +68,6 @@ header {
         margin-left: 20px; /* Space between the "Get a Quote" button and the language dropdown */
     }
 }
-/* Section styling */
-.skills-section {
-    background-color: #fff;
-    padding: 60px 0;
-}
-
-.section-heading {
-    font-size: 28px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 20px;
-}
-
-.section-description {
-    font-size: 16px;
-    color: #4a4a4a;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-/* Stats */
-.stats {
-    display: flex;
-    justify-content: start;
-}
-
-.stat-item h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00a2ff;
-}
-
-.stat-item p {
-    font-size: 14px;
-    color: #4a4a4a;
-}
-
-/* Right image with decorations */
-.image-container {
-    position: relative;
-    display: inline-block;
-}
-
-.main-image {
-    border-radius: 50%;
-    max-width: 300px;
-    position: relative;
-    z-index: 1;
-}
-
-.decorative-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-}
-
-.circle.blue {
-    width: 80px;
-    height: 80px;
-    background-color: #00a2ff;
-    top: 30%;
-    left: -10%;
-}
-
-.circle.light-blue {
-    width: 120px;
-    height: 120px;
-    background-color: #e0f7ff;
-    top: 60%;
-    right: -10%;
-}
-
-.trophy-icon {
-    position: absolute;
-    bottom: 10%;
-    right: -5%;
-}
-
-.trophy-icon img {
-    width: 60px;
-    height: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .stats {
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .stat-item {
-        margin-bottom: 15px;
-    }
-
-    .main-image {
-        max-width: 250px;
-    }
-
-    .circle.blue {
-        width: 60px;
-        height: 60px;
-    }
-
-    .circle.light-blue {
-        width: 90px;
-        height: 90px;
-    }
-
-    .trophy-icon img {
-        width: 50px;
-    }
-}
 /* Language Switcher Styles */
 .lang-switcher {
     border-radius: 50px;
@@ -226,30 +108,6 @@ header {
     color: #0056b3;
 }
 
-.section-title {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: #2A3E52;
-}
-
-.section-description {
-    font-size: 1rem;
-    color: #4A4A4A;
-    margin-bottom: 20px;
-}
-
-.img-fluid {
-    border-radius: 8px;
-    max-height: 300px; /* Optional: set a max-height for consistent image display */
-}
-
-@media (max-width: 768px) {
-    /* Stack columns on smaller screens */
-    .row {
-        flex-direction: column;
-    }
-}
-
 </style>
 <header>
     <nav class="navbar navbar-expand-md navbar-light">
@@ -274,12 +132,8 @@ header {
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">{% trans "A propos" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'programs' %}">{% trans "Spécialisations" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'programs' %}">{% trans "Spécialisations" %}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">{% trans "Le programme" %}</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'our_campus' %}">{% trans "Nos Campus" %}</a>
                     </li>
@@ -324,77 +178,65 @@ header {
 </header>
 {% endblock %}
 
-{% block hero_section %}
-<section class="skills-section py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="section-heading">{% trans "Une Formation Pratique et Immersive" %}</h2>
-                <p class="section-heading">{% trans "es cours interactifs et flexibles" %}</p>
-                <p class="section-description">
-                    {% trans "Conçus pour vous permettre de concilier votre apprentissage avec vos autres engagements, nos  cours sont accessibles en ligne et sur le campus." %}
-                </p>
-            </div>
-            <div class="col-md-6 text-md-right text-center mt-4 mt-md-0">
-                <img src="{% static 'eiad/img/pana.png' %}" alt="{% trans 'our values pic' %}" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
 
+{% block hero_section %}
+<div class=""></div>
 {% endblock %}
 
 
 {% block content %}
-
-<div class="container py-5">
-    <div class="row">
-        {% for program in programs %}
-            <div class="row mb-5 mt-5">
-                {% if forloop.counter|divisibleby:2 %}
-                    <div class="col-md-6 d-flex flex-column justify-content-center">
-                        <h2 class="section-title">{{ program.title }}</h2>
-                        <p class="section-description">
-                            {% if program.description %}
-                                {{ program.description }}
-                            {% else %}
-                                No description available.
-                            {% endif %}
-                        </p>
-                        <a href="{% url 'register_program' program.id %}" class="btn_1" style="width:30%;">{% trans "Inscrire" %}</a>
+<section class="course_details_area mt-5 mb-5">
+    <div class="container">
+        <h2 class="mb-5">{% trans "Inscrivez-vous pour" %} {{ program.title }}</h2>
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <form class="form-contact contact_form" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">{% trans "Nom" %}</label>
+                                <input class="form-control" name="name" id="name" type="text"  placeholder='{% trans "Brian Clark" %}'>
+                                {{ form.name.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">{% trans "E-mail" %}</label>
+                                <input class="form-control" name="email" id="email" type="email" placeholder='{% trans "example@youremail.com" %}'>
+                                {{ form.email.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="phone">{% trans "Téléphone" %}</label>
+                                <input class="form-control" name="phone" id="phone" type="text"  placeholder='{% trans "(123)456-789" %}'>
+                                {{ form.phone.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="age">{% trans "Âge" %}</label>
+                                <input class="form-control" name="age" id="age" type="text"  placeholder='{% trans "25" %}'>
+                                {{ form.age.errors }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="whatsapp_number">{% trans "Numéro WhatsApp" %}</label>
+                                <input class="form-control" name="whatsapp_number" id="whatsapp_number" type="text"  placeholder='{% trans "(123)456-789" %}'>
+                                {{ form.whatsapp_number.errors }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        {% if program.image %}
-                            <img src="{{ program.image.url }}" class="img-fluid" alt="{{ program.title }}">
-                        {% else %}
-                            <img src="/static/img/default-image.jpg" class="img-fluid" alt="Default image">
-                        {% endif %}
+                    <div class="form-group mt-3">
+                        <button type="submit" class="button button-contactForm btn_1">{% trans "Inscription" %}</button>
                     </div>
-                {% else %}
-                    <div class="col-md-6">
-                        {% if program.image %}
-                            <img src="{{ program.image.url }}" class="img-fluid" alt="{{ program.title }}">
-                        {% else %}
-                            <img src="/static/img/default-image.jpg" class="img-fluid" alt="Default image">
-                        {% endif %}
-                    </div>
-                    <div class="col-md-6 d-flex flex-column justify-content-center">
-                        <h2 class="section-title">{{ program.title }}</h2>
-                        <p class="section-description">
-                            {% if program.description %}
-                                {{ program.description }}
-                            {% else %}
-                                No description available.
-                            {% endif %}
-                        </p>
-                        <a href="{% url 'register_program' program.id %}" class="btn_1" style="width:30%;">{% trans "Inscrire" %}</a>
-                    </div>
-                {% endif %}
+                </form>
             </div>
-        {% endfor %}
+        </div>
     </div>
-</div>
-
+</section>
 
 
 <!-- popper js -->

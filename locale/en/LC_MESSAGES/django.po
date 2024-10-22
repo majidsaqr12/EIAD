@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-22 01:47+0300\n"
+"POT-Creation-Date: 2024-10-22 13:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1270,7 +1270,8 @@ msgstr ""
 #: templates/base.html:137 templates/base.html:219
 #: templates/courses/course-details.html:121 templates/courses/course.html:264
 #: templates/courses/join_course.html:117 templates/pages/index.html:117
-#: templates/programs/programs.html:249
+#: templates/programs/programs.html:259
+#: templates/programs/register_program.html:117
 msgid "logo"
 msgstr ""
 
@@ -1279,46 +1280,53 @@ msgstr ""
 #: templates/courses/course-details.html:134 templates/courses/course.html:277
 #: templates/courses/join_course.html:130 templates/pages/about.html:24
 #: templates/pages/index.html:130 templates/pages/our_campus.html:23
-#: templates/programs/programs.html:262
+#: templates/programs/programs.html:272
+#: templates/programs/register_program.html:130
 msgid "Accueil"
 msgstr "Home"
 
 #: templates/base.html:145 templates/courses/course-details.html:137
 #: templates/courses/course.html:280 templates/courses/join_course.html:133
-#: templates/pages/index.html:133 templates/programs/programs.html:265
+#: templates/pages/index.html:133 templates/programs/programs.html:275
+#: templates/programs/register_program.html:133
 msgid "A propos"
 msgstr "About"
 
 #: templates/base.html:146 templates/courses/course-details.html:139
 #: templates/courses/course.html:282 templates/courses/join_course.html:135
-#: templates/pages/index.html:135 templates/programs/programs.html:268
+#: templates/pages/index.html:135 templates/programs/programs.html:278
+#: templates/programs/register_program.html:135
 msgid "Spécialisations"
 msgstr "Specializations"
 
 #: templates/base.html:147 templates/courses/course-details.html:140
 #: templates/courses/course.html:283 templates/courses/join_course.html:136
-#: templates/pages/index.html:136 templates/programs/programs.html:271
+#: templates/pages/index.html:136 templates/programs/programs.html:281
+#: templates/programs/register_program.html:136
 msgid "Le programme"
 msgstr "The Program"
 
 #: templates/base.html:148 templates/courses/course-details.html:142
 #: templates/courses/course.html:285 templates/courses/join_course.html:138
 #: templates/pages/index.html:138 templates/pages/our_campus.html:21
-#: templates/pages/our_campus.html:25 templates/programs/programs.html:274
+#: templates/pages/our_campus.html:25 templates/programs/programs.html:284
+#: templates/programs/register_program.html:138
 msgid "Nos Campus"
 msgstr "Our Campuses"
 
 #: templates/base.html:149 templates/blogs/single-blog.html:32
 #: templates/courses/course-details.html:145 templates/courses/course.html:288
 #: templates/courses/join_course.html:141 templates/pages/index.html:141
-#: templates/programs/programs.html:277
+#: templates/programs/programs.html:287
+#: templates/programs/register_program.html:141
 msgid "Blog"
 msgstr "Blog"
 
 #: templates/base.html:151 templates/base.html:192 templates/base.html:196
 #: templates/courses/course-details.html:150 templates/courses/course.html:293
 #: templates/courses/join_course.html:146 templates/pages/index.html:146
-#: templates/programs/programs.html:282
+#: templates/programs/programs.html:292
+#: templates/programs/register_program.html:146
 msgid "Rejoignez EIAD"
 msgstr "Join EIAD"
 
@@ -1342,8 +1350,20 @@ msgid "Bulletin"
 msgstr "Newsletter"
 
 #: templates/base.html:227
-msgid "Recevez chaque mois dans votre boîte mail des conseils d'eRecevez les actualités d'EIAD, l'École Internationale de l'Intelligence Artificielle et de la Digitalisation. Découvrez nos nouvelles formations, événements, réussites d’étudiants, et accédez à des articles exclusifs de notre blog dédié à l'IA et à la digitalisation. Abonnez-vous pour rester à jour !xperts pour votre parcours scolaire. C'est court et utile, c'est promis !"
-msgstr "Receive each month in your inbox advice from experts for your academic journey. Receive updates from EIAD, the International School of Artificial Intelligence and Digitalization. Discover our new courses, events, student successes, and access exclusive articles from our blog dedicated to AI and digitalization. Subscribe to stay up to date! It's short and useful, we promise!"
+msgid ""
+"Recevez chaque mois dans votre boîte mail des conseils d'eRecevez les "
+"actualités d'EIAD, l'École Internationale de l'Intelligence Artificielle et "
+"de la Digitalisation. Découvrez nos nouvelles formations, événements, "
+"réussites d’étudiants, et accédez à des articles exclusifs de notre blog "
+"dédié à l'IA et à la digitalisation. Abonnez-vous pour rester à jour !xperts "
+"pour votre parcours scolaire. C'est court et utile, c'est promis !"
+msgstr ""
+"Receive each month in your inbox advice from experts for your academic "
+"journey. Receive updates from EIAD, the International School of Artificial "
+"Intelligence and Digitalization. Discover our new courses, events, student "
+"successes, and access exclusive articles from our blog dedicated to AI and "
+"digitalization. Subscribe to stay up to date! It's short and useful, we "
+"promise!"
 
 #: templates/base.html:232
 msgid "Entrez l\\"
@@ -1359,6 +1379,7 @@ msgstr "Address"
 
 #: templates/base.html:252 templates/courses/join_course.html:212
 #: templates/pages/contact.html:32 templates/pages/contact.html:73
+#: templates/programs/register_program.html:212
 msgid "Téléphone"
 msgstr "Phone"
 
@@ -1445,12 +1466,13 @@ msgid "Écrire un commentaire"
 msgstr "Write a Comment"
 
 #: templates/blogs/single-blog.html:115 templates/courses/join_course.html:198
-#: templates/pages/contact.html:61
+#: templates/pages/contact.html:61 templates/programs/register_program.html:198
 msgid "Nom"
 msgstr "Name"
 
 #: templates/blogs/single-blog.html:120 templates/courses/join_course.html:205
 #: templates/pages/contact.html:39 templates/pages/contact.html:67
+#: templates/programs/register_program.html:205
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -1512,7 +1534,7 @@ msgid "Formateurs professionnels"
 msgstr "Staff Training"
 
 #: templates/courses/course.html:357 templates/pages/index.html:199
-#: templates/programs/programs.html:329
+#: templates/programs/programs.html:339
 msgid "our values pic"
 msgstr "our values pic"
 
@@ -1564,22 +1586,26 @@ msgstr ""
 "operations."
 
 #: templates/courses/join_course.html:7
+#: templates/programs/register_program.html:7
 #, fuzzy
 #| msgid "Inscrivez-vous pour"
 msgid "Inscrivez-vous dès aujourd\\"
 msgstr "Sign up for"
 
 #: templates/courses/join_course.html:8
+#: templates/programs/register_program.html:8
 msgid ""
 "inscription cours EIAD, rejoindre un cours, formation IA, marketing digital, "
 "apprentissage en ligne, développement professionnel"
 msgstr ""
 
 #: templates/courses/join_course.html:9
+#: templates/programs/register_program.html:9
 msgid "Inscrivez-vous aux cours de EIAD School - Développez vos compétences"
 msgstr ""
 
 #: templates/courses/join_course.html:10
+#: templates/programs/register_program.html:10
 msgid ""
 "Rejoignez nos programmes de formation en intelligence artificielle et "
 "marketing digital pour apprendre auprès des meilleurs experts du secteur. "
@@ -1587,31 +1613,39 @@ msgid ""
 msgstr ""
 
 #: templates/courses/join_course.html:190
+#: templates/programs/register_program.html:190
 msgid "Inscrivez-vous pour"
 msgstr "Sign up for"
 
 #: templates/courses/join_course.html:199 templates/pages/contact.html:62
+#: templates/programs/register_program.html:199
 msgid "Brian Clark"
 msgstr "Brian Clark"
 
 #: templates/courses/join_course.html:206 templates/pages/contact.html:68
+#: templates/programs/register_program.html:206
 msgid "example@youremail.com"
 msgstr "example@youremail.com"
 
 #: templates/courses/join_course.html:213
 #: templates/courses/join_course.html:227 templates/pages/contact.html:74
+#: templates/programs/register_program.html:213
+#: templates/programs/register_program.html:227
 msgid "(123)456-789"
 msgstr "(123)456-789"
 
 #: templates/courses/join_course.html:219
+#: templates/programs/register_program.html:219
 msgid "Âge"
 msgstr "Age"
 
 #: templates/courses/join_course.html:220
+#: templates/programs/register_program.html:220
 msgid "25"
 msgstr "25"
 
 #: templates/courses/join_course.html:226
+#: templates/programs/register_program.html:226
 msgid "Numéro WhatsApp"
 msgstr "WhatsApp Number"
 
@@ -2153,17 +2187,29 @@ msgstr ""
 "and digital marketing sectors, creating exciting job opportunities and "
 "career prospects."
 
-#: templates/programs/programs.html:322
+#: templates/programs/programs.html:332
 msgid "Une Formation Pratique et Immersive"
 msgstr "A Practical and Immersive Training"
 
-#: templates/programs/programs.html:323
+#: templates/programs/programs.html:333
 msgid "es cours interactifs et flexibles"
 msgstr "interactive and flexible courses"
 
-#: templates/programs/programs.html:325
-msgid "Conçus pour vous permettre de concilier votre apprentissage avec vos autres engagements, nos  cours sont accessibles en ligne et sur le campus."
-msgstr "Designed to allow you to balance your learning with your other commitments, our courses are available online and on campus."
+#: templates/programs/programs.html:335
+msgid ""
+"Conçus pour vous permettre de concilier votre apprentissage avec vos autres "
+"engagements, nos  cours sont accessibles en ligne et sur le campus."
+msgstr ""
+"Designed to allow you to balance your learning with your other commitments, "
+"our courses are available online and on campus."
+
+#: templates/programs/programs.html:364 templates/programs/programs.html:390
+msgid "Inscrire"
+msgstr "Register"
+
+#: templates/programs/register_program.html:233
+msgid "Inscription"
+msgstr "Registration"
 
 #~ msgid "Entrez l'adresse email"
 #~ msgstr "Enter your email address"
