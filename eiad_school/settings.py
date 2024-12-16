@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,8 +80,12 @@ WSGI_APPLICATION = 'eiad_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('DATABASE_PATH', BASE_DIR / 'db/db.sqlite3')
+        'ENGINE': 'django.db.backends.mysql',  # Use MySQL backend
+        'NAME': 'eiad',                       # Database name
+        'USER': 'root',                       # Default MySQL user
+        'PASSWORD': '135790521Mm@',           # Leave blank if no password
+        'HOST': 'localhost',                  # Server location
+        'PORT': '3306',                       # Default MySQL port
     }
 }
 
